@@ -21,7 +21,7 @@ class ListsController < ApplicationController
   def destroy
     @list = List.find(params[:id])
     @list.destroy
-    redirect_to chat_path
+    redirect_to home_path
   end
 
   def list_params
