@@ -1,12 +1,13 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: whitesmoke;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-mendly-brand {
+font-family: 'Ubuntu', sans-serif;
+font-weight: 700;
 }

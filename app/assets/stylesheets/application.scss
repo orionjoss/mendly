@@ -10,3 +10,16 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.body-yield {
+  background-color: #ffe5a9;
+}
+
+.body-search-bar {
+  background-color: whitesmoke;
+  padding: 20px 20px 20px 20px;
+  margin-bottom: 0px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
