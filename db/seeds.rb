@@ -1,12 +1,13 @@
 require 'faker'
 
 puts "Cleaning the database 🫧🧽 ..."
-User.destroy_all
+Message.destroy_all
+ListRecommendation.destroy_all
 Recommendation.destroy_all
+List.destroy_all
 Item.destroy_all
 Category.destroy_all
-List.destroy_all
-Message.destroy_all
+User.destroy_all
 
 # CREATING USERS
 
