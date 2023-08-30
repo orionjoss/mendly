@@ -41,7 +41,6 @@ class RecommendationsController < ApplicationController
 
   private
 
-
   def recommendation_params
     params.require(:recommendation).permit(:item_id, :comment, :giver_id, :receiver_id)
   end
