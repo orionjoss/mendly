@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#landing"
-  get "chat", to: "pages#home"
+  get "home", to: "pages#home"
 
   resources :recommendations
   patch "recommendations/:id/archive", to: "recommendations#archive"
