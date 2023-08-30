@@ -1,0 +1,18 @@
+<div class="container mt-5">
+
+  <h1><strong><%= @recommendation.item.title %></strong></h1>
+  <h1>by <%= @recommendation.item.author %></h1>
+  <br>
+  <h5><%= @recommendation.item.category.name %> recommended by @<%= @recommendation.giver.nickname %></h5>
+  <p>Comment: <%= @recommendation.comment %></p>
+  <p>Decription: <%= @recommendation.item.description %></p>
+  <p>Published/released: <%= @recommendation.item.release_date %></p>
+
+  <%= link_to "Edit", edit_recommendation_path(@recommendation), class: "btn btn-primary btn-bar text-white btn-sm mx-1" %>
+
+  <%= link_to "X Delete recommendation",
+        recommendation_path(@recommendation),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+        class: "btn btn-danger btn-bar text-white btn-sm" %>
+
+</div>
