@@ -1,2 +1,67 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="button-container">
+  <div class="btn-group">
+    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      #filter-category
+    </button>
+    <ul class="dropdown-menu">
+    <li>movies</li>
+      <li>music</li>
+    </ul>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      #filter-category
+    </button>
+    <ul class="dropdown-menu">
+    <li>movies</li>
+      <li>music</li>
+    </ul>
+  </div>
+</div>
+
+<p>25 results of #lists/#recommendations organised by #order</p>
+
+
+<h1><strong>here are all your lists</strong></h1>
+<div>
+<%= link_to "Add new list", new_list_path, class: "btn btn-primary btn-sm",
+  style: "--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" %>
+</div>
+  <br>
+<div>
+
+  <% @lists.each do |list| %>
+
+    <div class="card text-bg-primary mb-3 mt-3" style="max-width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= list.name %></h5>
+      </div>
+    </div>
+  <% end %>
+
+<br>
+
+
+<h1><strong>Here are all of your recommendations</strong></h1>
+
+  <div>
+  <%= link_to "Add new recommendation", new_recommendation_path, class: "btn btn-primary btn-sm",
+  style: "--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" %>
+</div>
+
+ <% @recommendations.each do |recommendation| %>
+
+  <div class="card mt-3" style="width: 18rem;">
+    <div class="card-body">
+      <h4><%= recommendation.item.category.name %></h4>
+      <h6><%=recommendation.item.genre %></h6>
+      <h5 class="card-title"><%= recommendation.item.title %></h5>
+      <p class="card-text">  <%= recommendation.comment %></p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+
+
+
+<% end %>
