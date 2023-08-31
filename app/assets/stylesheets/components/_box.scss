@@ -1,14 +1,18 @@
 .box-lists {
-  // font-family: 'Fira Sans Extra Condensed', sans-serif;
-  font-family: 'Sofia Sans Extra Condensed', sans-serif;
-  font-size: x-large;
-  text-transform: uppercase;
-  // font-kerning: 2pt;
   background-color: black;
   margin: 0px 5px 5px 0px;
-  color: white;
   padding: 15px 40px 40px 15px;
   border-radius: 25px;
+}
+
+.box-lists-text {
+  // font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-family: 'Sofia Sans Extra Condensed', sans-serif;
+  font-size: xx-large;
+  text-transform: uppercase;
+  text-decoration: none;
+  // font-kerning: 2pt;
+  color: white;
 }
 
 .box-cards {

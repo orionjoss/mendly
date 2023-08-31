@@ -8,13 +8,15 @@
     <button type="button" class="btn btn-outline-dark btn-filters btn-sm">mendlies</button>
     <button class="btn btn-outline-primary btn-sm btn-filters dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">#categories</button>
       <ul class="dropdown-menu">
-        <li>movies</li>
-        <li>music</li>
+        <% @categories.each do |category| %>
+          <li># <%= category.name %></li>
+        <% end %>
       </ul>
-    <button class="btn btn-outline-primary btn-sm btn-filters dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">#friends</button>
+    <button class="btn btn-outline-primary btn-sm btn-filters dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@friends</button>
       <ul class="dropdown-menu">
-        <li>movies</li>
-        <li>music</li>
+        <% @givers.each do |giver| %>
+          <li>@ <%= giver.nickname %></li>
+        <% end %>
       </ul>
   </div>
 <hr>
@@ -42,7 +44,7 @@
       <div class="d-flex align-content-start flex-wrap w-100">
         <% @lists.each do |list| %>
           <div class="box-lists flex-grow-1">
-            <%= list.name %>
+            <%= link_to list.name, list, class: "box-lists-text" %>
           </div>
         <% end %>
       </div>
