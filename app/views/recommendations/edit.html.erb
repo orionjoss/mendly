@@ -1,15 +1,16 @@
-<div class="container mt-5">
-  <h1>Edit Recommendation</h1>
+<div class="container">
+<div class="header mb-4"></div>
+  <h1><strong>Edit Recommendation</strong></h1>
   <p>Here we will add a new recommendation</p>
 
   <%= simple_form_for(@recommendation) do |form| %>
     <div class="form-inputs">
-      <%= form.association :item, placeholder: "Name your recommendation"%>
-      <%= form.association :giver, label_method: :nickname, placeholder: "Who gave you this recommendation?"%>
-      <%= form.input :comment, placeholder: "Take a quick note about it"%>
+      <%= form.association :item, placeholder: "Name your recommendation", input_html: { class: "form-input-border" }%>
+      <%= form.association :giver, label_method: :nickname, placeholder: "Who gave you this recommendation?", input_html: { class: "form-input-border" } %>
+      <%= form.input :comment, placeholder: "Take a quick note about it", input_html: { class: "form-input-border" }%>
 
-  <div class="form-actions mt-4">
-    <%= form.button :submit, 'Create Recommendation', :class => "btn btn-sm btn-primary" %>
+  <div class="form-actions mt-4 d-flex justify-content-center">
+    <%= form.button :submit, 'Confirm', class: "btn btn-sm btn-primary rounded-pill p-2 w-100 mb-3" %>
   </div>
 
     </div>
