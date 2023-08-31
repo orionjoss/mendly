@@ -1,47 +1,66 @@
-<div class="button-container">
-  <div class="btn-group">
-    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-      #filter-category
-    </button>
-    <ul class="dropdown-menu">
-    <li>movies</li>
-      <li>music</li>
-    </ul>
+<div id="wrapper">
+
+
+
+<!-- filter group-->
+  <div class="d-flex justify-content-between mx-3 mt-3 my-0">
+
+    <button type="button" class="btn btn-outline-dark btn-filters btn-sm">lists</button>
+    <button type="button" class="btn btn-outline-dark btn-filters btn-sm">mendlies</button>
+    <button class="btn btn-outline-primary btn-sm btn-filters dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">#categories</button>
+      <ul class="dropdown-menu">
+        <li>movies</li>
+        <li>music</li>
+      </ul>
+    <button class="btn btn-outline-primary btn-sm btn-filters dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">#friends</button>
+      <ul class="dropdown-menu">
+        <li>movies</li>
+        <li>music</li>
+      </ul>
   </div>
+<hr>
 
-  <div class="btn-group">
-    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-      #filter-category
-    </button>
-    <ul class="dropdown-menu">
-    <li>movies</li>
-      <li>music</li>
-    </ul>
+<!-- number of results-->
+  <div class="mx-3 my-0">
+    <p>25 results of <strong>#movies</strong></p>
   </div>
-</div>
+<hr>
 
-<p>25 results of #lists/#recommendations organised by #order</p>
+<!-- lists-->
 
+  <div class="d-flex justify-content-between flex-grow-1 mx-3 my-3 align-items-center">
+    <button class="btn-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      > my lists
+    </button>
 
-<h1><strong>here are all your lists</strong></h1>
-<div>
-<%= link_to "Add new list", new_list_path, class: "btn btn-primary btn-sm",
-  style: "--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" %>
-</div>
-  <br>
-<div>
-
-  <% @lists.each do |list| %>
-
-    <div class="card text-bg-primary mb-3 mt-3" style="max-width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title"><%= list.name %></h5>
-      </div>
+    <div><%= link_to "Add new list", new_list_path, class: "btn btn-primary btn-sm",
+          style: "--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" %>
     </div>
-  <% end %>
+  </div>
 
-<br>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body block-collapse">
 
+        <div class="d-flex row">
+      <% @lists.each do |list| %>
+          <div class="box-list">
+            <%= list.name %>
+          </div>
+      <% end %>
+        </div>
+
+    </div>
+  </div>
+
+
+
+
+  </div>
+
+
+
+
+</div>
 
 <h1><strong>Here are all of your recommendations</strong></h1>
 

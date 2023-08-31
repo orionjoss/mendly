@@ -1,0 +1,27 @@
+.btn-filters {
+  border-radius: 25px !important;
+  // background-color: rgb(76, 162, 209);
+  // color:whitesmoke;
+  // border: none;
+  padding: 5px 10px 5px 10px !important;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn-collapse {
+  font-weight: 700;
+  font-size: large;
+  border: none;
+  font-family: 'Ubuntu', sans-serif;
+  margin-left: 0px;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.btn-collapse:hover {
+  background-color: #e3ca90;
+}
+
+.block-collapse {
+  background-color:#ffe5a9 !important;
+}
