@@ -1,7 +1,6 @@
 <div id="wrapper">
 
 
-
 <!-- filter group-->
   <div class="d-flex justify-content-between mx-3 mt-3 my-0">
 
@@ -29,58 +28,91 @@
 <!-- lists-->
 
   <div class="d-flex justify-content-between flex-grow-1 mx-3 my-3 align-items-center">
-    <button class="btn-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    <button class="btn-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseList" aria-expanded="false" aria-controls="collapseLists">
       > my lists
     </button>
 
-    <div><%= link_to "Add new list", new_list_path, class: "btn btn-primary btn-sm",
-          style: "--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" %>
+    <div><%= link_to "+ new list", new_list_path, class: "btn btn-primary btn-sm btn-filters" %>
     </div>
   </div>
 
-  <div class="collapse" id="collapseExample">
+  <div class="collapse show" id="collapseList">
     <div class="card card-body block-collapse">
 
-        <div class="d-flex row">
-      <% @lists.each do |list| %>
-          <div class="box-list">
+      <div class="d-flex align-content-start flex-wrap w-100">
+        <% @lists.each do |list| %>
+          <div class="box-lists flex-grow-1">
             <%= list.name %>
           </div>
-      <% end %>
-        </div>
+        <% end %>
+      </div>
 
     </div>
   </div>
 
+<!-- recommendations-->
 
+  <div class="d-flex justify-content-between flex-grow-1 mx-3 my-3 align-items-center">
+    <button class="btn-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRecommendations" aria-expanded="false" aria-controls="collapseRecommendations">
+      > my mendlies
+    </button>
 
-
-  </div>
-
-
-
-
-</div>
-
-<h1><strong>Here are all of your recommendations</strong></h1>
-
-  <div>
-  <%= link_to "Add new recommendation", new_recommendation_path, class: "btn btn-primary btn-sm",
-  style: "--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" %>
-</div>
-
- <% @recommendations.each do |recommendation| %>
-
-  <div class="card mt-3" style="width: 18rem;">
-    <div class="card-body">
-      <h4><%= recommendation.item.category.name %></h4>
-      <h6><%=recommendation.item.genre %></h6>
-      <h5 class="card-title"><%= recommendation.item.title %></h5>
-      <p class="card-text">  <%= recommendation.comment %></p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div><%= link_to "+ new mendly", new_recommendation_path, class: "btn btn-primary btn-sm btn-filters"%>
     </div>
   </div>
 
+  <div class="collapse show" id="collapseRecommendations">
+    <div class="card card-body block-collapse">
 
+      <div class="d-flex align-content-start flex-wrap w-100">
+        <% @recommendations.each do |recommendation| %>
+          <div class="box-cards flex-grow-1">
 
-<% end %>
+            <h5 class="card-item-title"><%= recommendation.item.title %></h5>
+            <p class="badge rounded-pill text-bg-warning">#<%= recommendation.item.category.name %></p>
+            <p class="card-badge badge rounded-pill text-bg-secondary">@<%= recommendation.giver.nickname %></p>
+            <p class="card-comment">/ <%= recommendation.comment %></p>
+
+          </div>
+
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- recommendations back up
+
+  <div class="d-flex justify-content-between flex-grow-1 mx-3 my-3 align-items-center">
+    <button class="btn-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRecommendations" aria-expanded="false" aria-controls="collapseRecommendations">
+      > my mendlies
+    </button>
+
+    <div><%= link_to "Add new recommendation", new_recommendation_path, class: "btn btn-primary btn-sm",
+        style: "--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" %>
+    </div>
+  </div>
+
+  <div class="collapse" id="collapseRecommendations">
+    <div class="card card-body block-collapse">
+
+      <div class="d-flex align-content-start flex-wrap w-100">
+        <% @recommendations.each do |recommendation| %>
+          <div class="box-list flex-grow-1">
+
+            <h4><%= recommendation.item.category.name %></h4>
+            <h6><%=recommendation.item.genre %></h6>
+            <h5 class=""><%= recommendation.item.title %></h5>
+            <p class="">  <%= recommendation.comment %></p>
+
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+-->
