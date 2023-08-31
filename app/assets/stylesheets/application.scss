@@ -16,10 +16,9 @@
 }
 
 .body-search-bar {
-  background-color: whitesmoke;
   padding: 20px 20px 20px 20px;
   margin-bottom: 0px;
-  position: fixed;
+  position: sticky;
   width: 100%;
   bottom: 0;
 }
