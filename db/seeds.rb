@@ -1,6 +1,6 @@
 require 'faker'
 
-puts " 🫧 ... Cleaning the database 🧽 ..."
+puts "1️⃣  First things first ... 🧽 Cleaning database 🫧 ..."
 Message.destroy_all
 ListRecommendation.destroy_all
 Recommendation.destroy_all
@@ -11,7 +11,7 @@ User.destroy_all
 
 # CREATING USERS
 
-puts '... Creating fake users ...'
+puts '... 💥 Creating fake users ...'
 10.times do
   name = Faker::TvShows::GameOfThrones.character
   nickname = Faker::TvShows::SouthPark.character
@@ -26,80 +26,85 @@ puts '... Creating fake users ...'
   )
 end
 
-puts '✅ ---- Successfully created 👤 Users!!! ----'
+puts '✔️ Successfully created Users! 👤 '
 
 
 #CREATING CATEGORIES
 
-puts '... Creating fake categories ... '
+puts '... 💥 Creating fake categories ... '
 categories = ["Movie", "Documentary", "Animation", "Comic Book", "Music", "Book", "Graphic Novel", "App","Videogame", "Podcast", "TV Show", "Youtube Channel"]
 
-genre = [
-  "Action", "Comedy", "Drama", "Sci-Fi", "Horror","Romance", "Thriller", "Adventure", "Fantasy", "Mystery", "Pop", "Rock", "Hip-Hop", "Jazz", "Electronic","Country", "Classical", "R&B", "Indie", "Reggae", "Superhero", "Fantasy", "Horror", "Mystery", "Sci-Fi", "Romance", "Adventure", "Crime", "Historical", "Thriller", "Productivity", "Social Networking", "Entertainment", "Education", "Health & Fitness", "Travel", "News", "Photography", "Finance", "Gaming"
-]
+genre = ["Horror"]
+
+# TO-DO: FIX THIS GENRES LATER:
+# genre = [
+#   "Action", "Comedy", "Drama", "Sci-Fi", "Horror","Romance", "Thriller", "Adventure", "Fantasy", "Mystery", "Pop", "Rock", "Hip-Hop", "Jazz", "Electronic","Country", "Classical", "R&B", "Indie", "Reggae", "Superhero", "Fantasy", "Horror", "Mystery", "Sci-Fi", "Romance", "Adventure", "Crime", "Historical", "Thriller", "Productivity", "Social Networking", "Entertainment", "Education", "Health & Fitness", "Travel", "News", "Photography", "Finance", "Gaming"
+# ]
 
 categories.each do |category|
   Category.create(name: category)
 end
 
-puts '✅ ---- Successfully created 🏷️ Categories!!! ----'
+puts '✔️ Successfully created Categories! 🏷️ '
 
 
 # CREATING ITEMS
 
-puts '... Creating fake items...'
+puts '... 💥 Creating fake items...'
 
 categories = Category.all
 
-movie_genre = [
-  "Action", "Comedy", "Drama", "Sci-Fi", "Horror",
-  "Romance", "Thriller", "Adventure", "Fantasy", "Mystery"
-]
+#TODO - Create specific genres for each one of the categories.
 
-podcast_genre = [
-  "True Crime", "Comedy", "News", "Interview", "Education",
-  "Technology", "History", "Health", "Storytelling", "Music"
-]
+# movie_genre = [
+#   "Action", "Comedy", "Drama", "Sci-Fi", "Horror",
+#   "Romance", "Thriller", "Adventure", "Fantasy", "Mystery"
+# ]
 
-music_genre = [
-  "Pop", "Rock", "Hip-Hop", "Jazz", "Electronic",
-  "Country", "Classical", "R&B", "Indie", "Reggae"
-]
+# podcast_genre = [
+#   "True Crime", "Comedy", "News", "Interview", "Education",
+#   "Technology", "History", "Health", "Storytelling", "Music"
+# ]
 
-youtube_genre = [
-  "Gaming", "Cooking", "Travel", "Beauty", "Science",
-  "DIY", "Fashion", "Fitness", "Comedy", "Music"
-]
+# music_genre = [
+#   "Pop", "Rock", "Hip-Hop", "Jazz", "Electronic",
+#   "Country", "Classical", "R&B", "Indie", "Reggae"
+# ]
 
-videogame_genre = [
-  "RPG", "FPS", "Adventure", "Puzzle", "Simulation",
-  "Racing", "Sports", "Strategy", "Fighting", "Horror"
-]
+# youtube_genre = [
+#   "Gaming", "Cooking", "Travel", "Beauty", "Science",
+#   "DIY", "Fashion", "Fitness", "Comedy", "Music"
+# ]
 
-animation_genre = [
-  "Anime", "Cartoon", "Stop-Motion", "3D Animation", "Fantasy",
-  "Sci-Fi", "Comedy", "Drama", "Adventure", "Musical"
-]
+# videogame_genre = [
+#   "RPG", "FPS", "Adventure", "Puzzle", "Simulation",
+#   "Racing", "Sports", "Strategy", "Fighting", "Horror"
+# ]
 
-graphic_novel_genre = [
-  "Superhero", "Fantasy", "Horror", "Mystery", "Sci-Fi",
-  "Romance", "Adventure", "Crime", "Historical", "Thriller"
-]
+# animation_genre = [
+#   "Anime", "Cartoon", "Stop-Motion", "3D Animation", "Fantasy",
+#   "Sci-Fi", "Comedy", "Drama", "Adventure", "Musical"
+# ]
 
-tv_show_genre = [
-  "Drama", "Comedy", "Crime", "Fantasy", "Sci-Fi",
-  "Thriller", "Mystery", "Romance", "Horror", "Documentary"
-]
+# graphic_novel_genre = [
+#   "Superhero", "Fantasy", "Horror", "Mystery", "Sci-Fi",
+#   "Romance", "Adventure", "Crime", "Historical", "Thriller"
+# ]
 
-documentary_genre = [
-  "Nature", "History", "Science", "True Crime", "Social Issues",
-  "Biography", "Travel", "Music", "Technology", "Sports"
-]
+# tv_show_genre = [
+#   "Drama", "Comedy", "Crime", "Fantasy", "Sci-Fi",
+#   "Thriller", "Mystery", "Romance", "Horror", "Documentary"
+# ]
 
-app_genre = [
-  "Productivity", "Social Networking", "Entertainment", "Education", "Health & Fitness",
-  "Travel", "News", "Photography", "Finance", "Gaming"
-]
+# documentary_genre = [
+#   "Nature", "History", "Science", "True Crime", "Social Issues",
+#   "Biography", "Travel", "Music", "Technology", "Sports"
+# ]
+
+# app_genre = [
+#   "Productivity", "Social Networking", "Entertainment", "Education", "Health & Fitness",
+#   "Travel", "News", "Photography", "Finance", "Gaming"
+# ]
 
 categories.each do |category|
   5.times do
@@ -109,6 +114,7 @@ categories.each do |category|
         category: category,
         title: Faker::Book.title,
         genre: Faker::Book.genre,
+        # genre: Faker::Book.book_genre.select.random,
         description: Faker::Lorem.paragraph,
         author: Faker::Book.author,
         release_date: Faker::Date.between(from: '2000-01-01', to: '2023-08-29')
@@ -146,11 +152,11 @@ categories.each do |category|
   end
 end
 
-puts '✅ ---- Successfully created 📚 Items!!! ----'
+puts '✔️ Successfully created Items! 📚 '
 
 # CREATING RECOMMENDATIONS
 
-puts '... Creating fake recommendations'
+puts '... 💥 Creating fake recommendations'
 100.times do
   Recommendation.create(
     comment: Faker::Quote.yoda,
@@ -160,7 +166,7 @@ puts '... Creating fake recommendations'
   )
 end
 
-puts '✅ ---- Successfully created 🎗️ Recommendations!!! ----'
+puts '✔️ Successfully created Recommendations! 🎗️ '
 
 # CREATING MESSAGES
 puts '... Creating fake messages...'
@@ -173,4 +179,4 @@ recommendations.each do |recommendation|
   )
 end
 
-puts '✅ ---- Successfully created 💬 Messages!!! ---- '
+puts '✔️ Successfully created Messages! 💬 '
