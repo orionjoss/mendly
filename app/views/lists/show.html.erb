@@ -1,12 +1,46 @@
-<div class="container mt-5">
+<div class="container mt-3">
 <!--  <h1>List number <%= @list.id %></h1> -->
-   <h1><%= @list.name %> list</h1>
+  <div class="box-lists flex-grow-1">
+    <h1 class="box-lists-text"><%= @list.name %> list</h1>
+    
+    <div class="d-flex justify-content-between">
+      <%= link_to "<", home_path, class: "btn btn-outline-secondary btn-pill btn-bar text-white btn-sm mx-1" %>
 
-  <p>Here we will create a new list of recommendations</p>
+      <%= link_to "X Delete list",
+            list_path(@list),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+            class: "btn btn-outline-danger btn-pill btn-bar btn-sm" %>
+    </div>
+  </div>
 
-   <%= link_to "X Delete list",
-        list_path(@list),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-        class: "btn btn-danger btn-bar text-white btn-sm" %>
 
+
+<% category_colors = {
+     "Film" => "#36c3bb",
+     "Documentary" => "#36c3bb",
+     "Animation" => "#36c3bb",
+     "Comic Book" => "#a3f263",
+     "Music" => "#36c3bb",
+     "Book" => "#a3f263",
+     "Graphic Novel" => "#a3f263",
+     "Videogame" => "#ff7b62",
+     "Podcast" => "#36c3bb",
+     "TV Show" => "#36c3bb",
+     "Youtube Channel" => "#36c3bb"
+   } %>
+
+  <div class="d-flex align-content-start flex-wrap w-100">
+  <% @recommendations.reverse_each do |recommendation| %>
+      <%= link_to recommendation_path(recommendation), class: "box-cards flex-grow-1" do %>
+        <div class="col">
+          <h5 class="card-item-title"><%= recommendation.item.title %></h5>
+          <p class="badge rounded-pill" style="color: black; background-color: <%= category_colors[recommendation.item.category.name] %>;">
+            #<%= recommendation.item.category.name %>
+          </p>
+          <p class="card-badge badge rounded-pill text-bg-secondary">@<%= recommendation.giver.nickname %></p>
+          <p class="card-comment">/ <%= recommendation.comment %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
