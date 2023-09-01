@@ -17,7 +17,7 @@
 
 .box-cards {
   background-color: rgb(255, 255, 255);
-  // margin: 0px 5px 5px 0px;
+  margin: 0px 5px 5px 0px;
   color: rgb(0, 0, 0);
   padding: 10px 10px 0px 10px;
   border-radius: 15px;
@@ -30,9 +30,26 @@
   background-color: black;
   color: whitesmoke;
   border-radius: 30px;
-
   position: absolute; bottom:0;
+}
 
+.box-recommendation h1 {
+  font-family: 'Sofia Sans Extra Condensed', sans-serif;
+  font-size: xx-large;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+
+}
+.box-recommendation p {
+  font-size: smaller;
+  text-decoration: none;
+  color: white;
+
+}
+
+.recommendation-image {
+  height: 100vh
 }
 // externos
 
