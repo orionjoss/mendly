@@ -14,7 +14,9 @@
     <p>Description: <%= @recommendation.item.description %></p>
     <p>Published/released: <%= @recommendation.item.release_date %></p>
 
-    <button class="btn btn-outline-primary btn-sm btn-filters dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">add to list</button>
+    <%= link_to "<", home_path, class: "btn btn-outline-secondary btn-pill btn-bar text-white btn-sm mx-1" %>
+
+    <button class="btn btn-outline-primary btn-sm btn-pill dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">add to list</button>
     <ul class="dropdown-menu dropdown-menu-plus">
       <% @lists.each do |list| %>
         <li>
@@ -23,12 +25,12 @@
       <% end %>
     </ul>
 
-    <%= link_to "Edit", edit_recommendation_path(@recommendation), class: "btn btn-primary btn-filters btn-bar text-white btn-sm mx-1" %>
+    <%= link_to "Edit", edit_recommendation_path(@recommendation), class: "btn btn-outline-primary btn-pill btn-bar btn-sm mx-1" %>
 
     <%= link_to "Delete",
             recommendation_path(@recommendation),
             data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-            class: "btn btn-danger btn-filters btn-bar text-white btn-sm" %>
+            class: "btn btn-outline-danger btn-pill btn-bar btn-sm" %>
   </div>
 
 </div>

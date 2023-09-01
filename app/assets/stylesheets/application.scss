@@ -12,7 +12,8 @@
 @import "pages/index";
 
 .body-yield {
-  background-color: #ffe5a9;
+  // background-color: #ffe5a9;
+  background-color: #222;
 }
 
 .body-search-bar {
@@ -21,5 +22,13 @@
   position: sticky;
   width: 100%;
   bottom: 0;
-  background: white;
+  background: black;
+}
+
+.search-bar-plus {
+  border-radius: 25px !important;
+  background-color: #222 !important;
+  color: whitesmoke !important;
+  // opacity: 20%;
+  border: 1px solid whitesmoke !important;
 }
