@@ -1,16 +1,17 @@
 <div class="container mt-5">
-  <h1>New Collection(List)</h1>
-  <p>Here we will create a new list of recommendations</p>
 
+  <div class="box-lists">
+    <h1 class="box-lists-text">New Collection</h1>
 
-  <%= simple_form_for(@list) do |form| %>
-    <div class="form-inputs">
-    <%= form.input :name, placeholder: "Name your list"%>
+    <%= simple_form_for(@list) do |form| %>
+      <div class="form-inputs text-white">
+      <%= form.input :name, placeholder: "Name your list"%>
+      </div>
 
-  <div class="form-actions mt-4">
-    <%= form.button :submit, 'Create List', :class => "btn btn-sm btn-primary" %>
+      <div class="form-actions mt-4">
+        <%= form.button :submit, 'Create List', :class => "btn btn-sm btn-primary" %>
+      </div>
+
+    <% end %>
   </div>
-
-    </div>
-  <% end %>
 </div>

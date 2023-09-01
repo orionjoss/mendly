@@ -1,20 +1,19 @@
 <div class="container">
-  <div class="header mb-4">
-    <h1><strong>New Recommendation</strong></h1>
-    <p>Here we will add a new recommendation</p>
-  </div>
 
-  <%= simple_form_for(@recommendation) do |form| %>
-    <div class="form-inputs">
-      <%= form.association :item, label: "Name", placeholder: "Name your recommendation", input_html: { class: "form-input-border" } %>
-      <%= form.association :giver, label: "Mendler", label_method: :nickname, placeholder: "Who gave you this recommendation?", input_html: { class: "form-input-border" } %>
-      <%= form.input :comment, placeholder: "Take a quick note about it", input_html: { class: "form-input-border" } %>
+  <div class="box-lists">
+    <h1 class="box-lists-text">New Recommendation</h1>
 
-  <div class="form-actions mt-4 d-flex justify-content-center">
-    <%= form.button :submit, 'Confirm', class: "btn btn-sm btn-primary rounded-pill p-2 w-100 mb-3" %>
-  </div>
+    <%= simple_form_for(@recommendation) do |form| %>
+      <div class="form-inputs text-white">
+        <%= form.association :item, label: "Name", placeholder: "Name your recommendation", input_html: { class: "form-input-border" } %>
+        <%= form.association :giver, label: "Mendler", label_method: :nickname, placeholder: "Who gave you this recommendation?", input_html: { class: "form-input-border" } %>
+        <%= form.input :comment, placeholder: "Take a quick note about it", input_html: { class: "form-input-border" } %>
 
+      </div>
+
+    <div class="form-actions mt-4 d-flex justify-content-center">
+      <%= form.button :submit, 'Confirm', class: "btn btn-sm btn-primary rounded-pill p-2 w-100 mb-3" %>
     </div>
-  <% end %>
-
+    <% end %>
+  </div>
 </div>
