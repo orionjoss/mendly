@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :recommendations
   patch "recommendations/:id/archive", to: "recommendations#archive"
   resources :lists, only: %i[show new create destroy] do
-    resources :recommendation_lists, only: %i[new create destroy]
+    resources :recommendation_lists, only: %i[create destroy]
   end
   resources :users, only: %i[show]
 

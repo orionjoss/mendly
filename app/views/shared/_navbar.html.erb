@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "/" do %>
+    <%= link_to "/home" do %>
       <!--<%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>-->
       <h1 class="navbar-mendly-brand">mendly</h1>
     <% end %>
@@ -13,36 +13,23 @@
           <%= image_tag "https://blog.redbubble.com/wp-content/uploads/2019/05/Grumpy-Cat-Blog-Square.png", class: "avatar", alt: "profile pic" %>
         </a>
 -->
-       <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       <a href="#" class="avatar mr-1" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <%= image_tag "https://blog.redbubble.com/wp-content/uploads/2019/05/Grumpy-Cat-Blog-Square.png", class: "avatar", alt: "dropdown menu" %>
         </a>
 
       <div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
 
+                  <div class="dropdown-menu dropdown-menu-end dropdown-menu-plus mx-4" aria-labelledby="navbarDropdown">
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-
-            <ul class="navbar-nav me-auto">
-
-
-
-
-              <li class="nav-item dropdown">
-
-                  <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <%= link_to "Action", "#", class: "dropdown-item" %>
-                    <%= link_to "Another action", "#", class: "dropdown-item" %>
-                    <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+                    <%= link_to "Profile", "#", class: "dropdown-item dropdown-menu-text" %><!--link_to user_path-->
+                    <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item dropdown-menu-text" %>
                   </div>
-              </li>
 
-               <li class="nav-item active">
+
+<!--               <li class="nav-item active">
                   <%= link_to "Home", "#", class: "nav-link" %>
                 </li>
+-->
       </div>
       </div>
               <% else %>

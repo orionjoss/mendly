@@ -1,6 +1,7 @@
 class RecommendationsController < ApplicationController
   def show
     @recommendation = Recommendation.find(params[:id])
+    @lists = current_user.lists
   end
 
   def new

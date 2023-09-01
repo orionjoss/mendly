@@ -1,18 +1,33 @@
-<div class="container mt-5">
+<div class="container p-0 m-0">
 
-  <h1><strong><%= @recommendation.item.title %></strong></h1>
-  <h1>by <%= @recommendation.item.author %></h1>
-  <br>
-  <h5><%= @recommendation.item.category.name %> recommended by @<%= @recommendation.giver.nickname %></h5>
-  <p>Comment: <%= @recommendation.comment %></p>
-  <p>Decription: <%= @recommendation.item.description %></p>
-  <p>Published/released: <%= @recommendation.item.release_date %></p>
+<div class="recommendation-image">
+  <%= image_tag("https://static.euronews.com/articles/stories/07/46/34/40/1440x810_cmsv2_a55b52df-4441-5746-941d-a6ced6e08be2-7463440.jpg", class: "min-height: 100vh; display: flex; flex-direction: column;") %>
+    <div class="box-recommendation">
 
-  <%= link_to "Edit", edit_recommendation_path(@recommendation), class: "btn btn-primary btn-bar text-white btn-sm mx-1" %>
+      <h3><strong><%= @recommendation.item.title %></strong></h3>
+      <h3>by <%= @recommendation.item.author %></h3>
+      <h6><%= @recommendation.item.category.name %> recommended by @<%= @recommendation.giver.nickname %></h6>
+      <p>Comment: <%= @recommendation.comment %></p>
+      <p>Decription: <%= @recommendation.item.description %></p>
+      <p>Published/released: <%= @recommendation.item.release_date %></p>
 
-  <%= link_to "X Delete recommendation",
-        recommendation_path(@recommendation),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-        class: "btn btn-danger btn-bar text-white btn-sm" %>
+    <button class="btn btn-outline-primary btn-sm btn-filters dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">add to list</button>
+        <ul class="dropdown-menu dropdown-menu-plus">
+            <% @lists.each do |list| %>
+              <li>
+                <%= button_to "# #{list.name}", list_recommendation_lists_path(list, recommendation_id: @recommendation.id) %>
+              </li>
+            <% end %>
+          </ul>
 
+      <%= link_to "Edit", edit_recommendation_path(@recommendation), class: "btn btn-primary btn-bar text-white btn-sm mx-1" %>
+
+      <%= link_to "Delete",
+            recommendation_path(@recommendation),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+            class: "btn btn-danger btn-bar text-white btn-sm" %>
+
+    </div>
+
+  </div>
 </div>
