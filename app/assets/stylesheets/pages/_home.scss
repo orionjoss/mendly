@@ -1,1 +1,152 @@
-// Specific CSS for your home-page
+/* Reset some default browser styles */
+html, body, h1, h2, h3, h4, h5, h6, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set a background color and font styles for the entire page */
+body {
+  background-color: #0e6dfd;
+  color: #000; /* Changed text color to black (#000) */
+  font-family: Arial, sans-serif;
+}
+
+/* Style the header section */
+header {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Style the hero section */
+.hero {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+/* Style the hero title */
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+/* Style the hero subtitle */
+.hero h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+/* Style the hero paragraph */
+.hero p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+/* Style the hero list */
+.hero ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+/* Style the hero list items */
+.hero li {
+  margin-bottom: 10px;
+}
+
+/* Style the CTA section */
+.cta {
+  margin-top: 20px;
+}
+
+/* Style the CTA button */
+.cta-button {
+  display: inline-block;
+  background-color: #0e6dfd;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for CTA button */
+.cta-button:hover {
+  background-color: #ffffff;
+}
+
+/* Style the social proof section */
+.social-proof {
+  background-color: #333;
+  color: #000; /* Changed text color to black (#000) */
+  padding: 30px;
+  text-align: center;
+}
+
+/* Style testimonials */
+.testimonials {
+  margin: 20px 0;
+}
+
+.testimonials h4 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.testimonials p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+/* Style the "About Us" section */
+.about-us {
+  background-color: #444;
+  color: #000; /* Changed text color to black (#000) */
+  padding: 30px;
+  text-align: center;
+}
+
+/* Style the FAQs section */
+.faqs {
+  background-color: #555;
+  color: #000; /* Changed text color to black (#000) */
+  padding: 30px;
+}
+
+/* Style FAQ questions */
+.faqs strong {
+  font-weight: bold;
+}
+
+.faqs p {
+  margin: 10px 0;
+}
+
+/* Style the conclusion section */
+.conclusion {
+  background-color: #666;
+  color: #000; /* Changed text color to black (#000) */
+  padding: 30px;
+  text-align: center;
+}
+
+/* Style the footer section */
+footer {
+  background-color: #1e1e1e;
+  color: #000; /* Changed text color to black (#000) */
+  text-align: center;
+  padding: 20px;
+}
+
+/* Style footer links */
+footer a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+/* Hover effect for footer links */
+footer a:hover {
+  text-decoration: underline;
+}
+
