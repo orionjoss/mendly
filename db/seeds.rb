@@ -128,17 +128,17 @@ categories.each do |category|
         author: Faker::Music.band,
         release_date: Faker::Date.between(from: '2000-01-01', to: '2023-08-29')
       )
-    when "Videogames"
+    when "Videogame"
       Item.create(
         category: category,
         title: Faker::Game.title,
         genre: Faker::Game.genre,
         description: Faker::Lorem.paragraph,
-        author: Faker::Game.publisher,
+        author: Faker::Book.publisher,
         release_date: Faker::Date.between(from: '2000-01-01', to: '2023-08-29'),
         episode: rand(1..10)
       )
-    when ["Podcasts", "TV Shows", "Youtube Channel"].include?(category.name)
+    when ["Podcast", "TV Show", "Youtube Channel"].include?(category.name)
       Item.create(
         category: category,
         title: Faker::TvShows::Simpsons.character,

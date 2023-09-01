@@ -21,19 +21,17 @@
       <%= render "shared/navbar" %>
     </div>
 
-    <div class="body-yield flex-grow-1">
+    <div class="body-yield flex-grow-1 position-relative">
       <%= yield %>
     </div>
 
-    <%= render "shared/flashes" %>
-    <span class="notice"><%= notice %></span>
-    <span class="alert"><%= alert %></span>
 
     <div class="body-search-bar">
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Find a list or recommendation" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Go!</button>
+        <input class="form-control search-bar-plus me-2" type="search" placeholder="Find a list or recommendation" aria-label="Search">
+        <button class="btn btn-outline-primary btn-pill" type="submit">Go!</button>
       </form>
     </div>
+    <%= render "shared/flashes" %>
   </body>
 </html>
