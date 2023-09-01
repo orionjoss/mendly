@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: whitesmoke;
+  background: black;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -10,4 +11,19 @@
 .navbar-mendly-brand {
 font-family: 'Ubuntu', sans-serif;
 font-weight: 700;
+}
+
+.dropdown-menu-plus {
+  background-color: #333 !important;
+  border-radius: 8px 8px 8px 8px !important;
+  margin: -5px 0px 0px 0px !important;
+}
+.dropdown-menu-text {
+  color: #ddd !important;
+}
+.dropdown-menu-text:hover {
+  color: white !important;
+  background-color: #444 !important;
+
+
 }

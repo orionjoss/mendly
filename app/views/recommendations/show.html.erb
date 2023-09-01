@@ -1,18 +1,36 @@
-<div class="container mt-5">
+<div class="container p-0 m-0 position-absolute" style="inset: 0">
 
-  <h1><strong><%= @recommendation.item.title %></strong></h1>
-  <h1>by <%= @recommendation.item.author %></h1>
-  <br>
-  <h5><%= @recommendation.item.category.name %> recommended by @<%= @recommendation.giver.nickname %></h5>
-  <p>Comment: <%= @recommendation.comment %></p>
-  <p>Decription: <%= @recommendation.item.description %></p>
-  <p>Published/released: <%= @recommendation.item.release_date %></p>
+  <div class="recommendation-image" style="background-image: url('https://cdn.smehost.net/sonymusicpt-ptprod/wp-content/uploads/2019/03/rosalia-ayntk.jpg')">
+  </div>
 
-  <%= link_to "Edit", edit_recommendation_path(@recommendation), class: "btn btn-primary btn-bar text-white btn-sm mx-1" %>
+  <div class="box-recommendation">
 
-  <%= link_to "X Delete recommendation",
-        recommendation_path(@recommendation),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-        class: "btn btn-danger btn-bar text-white btn-sm" %>
+    <h1><strong><%= @recommendation.item.title %></strong></h1>
+    <h5>by <%= @recommendation.item.author %></h3>
+    <h6><%= @recommendation.item.category.name %> recommended by @<%= @recommendation.giver.nickname %></h6>
+    <hr>
+    <p>Comment: <%= @recommendation.comment %></p>
+    <hr>
+    <p>Description: <%= @recommendation.item.description %></p>
+    <p>Published/released: <%= @recommendation.item.release_date %></p>
+
+    <%= link_to "<", home_path, class: "btn btn-outline-secondary btn-pill btn-bar text-white btn-sm mx-1" %>
+
+    <button class="btn btn-outline-primary btn-sm btn-pill dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">add to list</button>
+    <ul class="dropdown-menu dropdown-menu-plus">
+      <% @lists.each do |list| %>
+        <li class="mx-3">
+          <%= button_to "##{list.name}", list_recommendation_lists_path(list, recommendation_id: @recommendation.id), class: "btn-clean dropdown-menu-text" %>
+        </li>
+      <% end %>
+    </ul>
+
+    <%= link_to "Edit", edit_recommendation_path(@recommendation), class: "btn btn-outline-primary btn-pill btn-bar btn-sm mx-1" %>
+
+    <%= link_to "Delete",
+            recommendation_path(@recommendation),
+            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+            class: "btn btn-outline-danger btn-pill btn-bar btn-sm" %>
+  </div>
 
 </div>

@@ -4,28 +4,31 @@
 <!-- filter group-->
   <div class="d-flex justify-content-between mx-3 mt-3 my-0">
 
-    <button type="button" class="btn btn-outline-dark btn-filters btn-sm">lists</button>
-    <button type="button" class="btn btn-outline-dark btn-filters btn-sm">mendlies</button>
+    <button type="button" class="btn btn-outline-light btn-filters btn-sm">lists</button>
+    <button type="button" class="btn btn-outline-light btn-filters btn-sm">mendlies</button>
     <button class="btn btn-outline-primary btn-sm btn-filters dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">#categories</button>
-      <ul class="dropdown-menu">
-        <% @categories.each do |category| %>
-          <li># <%= category.name %></li>
-        <% end %>
-      </ul>
+    <ul class="dropdown-menu dropdown-menu-plus mt-1">
+      <% @categories.each do |category| %>
+        <li class="dropdown-menu-text mx-3">#<%= category.name %></li>
+      <% end %>
+    </ul>
     <button class="btn btn-outline-primary btn-sm btn-filters dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@friends</button>
-      <ul class="dropdown-menu">
-        <% @givers.each do |giver| %>
-          <li>@ <%= giver.nickname %></li>
-        <% end %>
-      </ul>
+    <ul class="dropdown-menu dropdown-menu-plus mt-1">
+      <% @givers.each do |giver| %>
+        <li class="dropdown-menu-text mx-3">@<%= giver.nickname %></li>
+      <% end %>
+    </ul>
   </div>
-<hr>
+
+  <hr>
 
 <!-- number of results-->
+<!--
   <div class="mx-3 my-0">
     <p>25 results of <strong>#movies</strong></p>
   </div>
 <hr>
+-->
 
 <!-- lists-->
 
@@ -34,21 +37,20 @@
       > my lists
     </button>
 
-    <div><%= link_to "+ new list", new_list_path, class: "btn btn-primary btn-sm btn-filters" %>
+    <div>
+      <%= link_to "+ new list", new_list_path, class: "btn btn-primary btn-sm btn-filters" %>
     </div>
   </div>
 
   <div class="collapse show" id="collapseList">
     <div class="card card-body block-collapse">
-
       <div class="d-flex align-content-start flex-wrap w-100">
-        <% @lists.each do |list| %>
+        <% @lists.reverse_each do |list| %>
           <div class="box-lists flex-grow-1">
             <%= link_to list.name, list, class: "box-lists-text" %>
           </div>
         <% end %>
       </div>
-
     </div>
   </div>
 
@@ -59,62 +61,55 @@
       > my mendlies
     </button>
 
-    <div><%= link_to "+ new mendly", new_recommendation_path, class: "btn btn-primary btn-sm btn-filters"%>
+    <div>
+      <%= link_to "+ new mendly", new_recommendation_path, class: "btn btn-primary btn-sm btn-filters"%>
     </div>
   </div>
 
   <div class="collapse show" id="collapseRecommendations">
     <div class="card card-body block-collapse">
-
       <div class="d-flex align-content-start flex-wrap w-100">
-        <% @recommendations.each do |recommendation| %>
-          <div class="box-cards flex-grow-1">
+        <% category_colors = {
+            "Film" => "#36c3bb",
+            "Documentary" => "#36c3bb",
+            "Animation" => "#36c3bb",
+            "Comic Book" => "#a3f263",
+            "Music" => "#36c3bb",
+            "Book" => "#a3f263",
+            "Graphic Novel" => "#a3f263",
+            "Videogame" => "#ff7b62",
+            "Podcast" => "#36c3bb",
+            "TV Show" => "#36c3bb",
+            "Youtube Channel" => "#36c3bb"
+          } %>
 
-            <h5 class="card-item-title"><%= recommendation.item.title %></h5>
-            <p class="badge rounded-pill text-bg-warning">#<%= recommendation.item.category.name %></p>
-            <p class="card-badge badge rounded-pill text-bg-secondary">@<%= recommendation.giver.nickname %></p>
-            <p class="card-comment">/ <%= recommendation.comment %></p>
-
-          </div>
-
-        <% end %>
+        <div class="d-flex align-content-start flex-wrap w-100">
+          <% @recommendations.reverse_each do |recommendation| %>
+            <%= link_to recommendation_path(recommendation), class: "box-cards flex-grow-1" do %>
+              <div class="col">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h5 class="card-item-title mb-0"><%= recommendation.item.title %></h5>
+                  <div>
+                    <button class="btn btn-outline-secondary btn-sm btn-filters" type="button" data-bs-toggle="dropdown" aria-expanded="false"><strong> + </strong></button>
+                    <ul class="dropdown-menu dropdown-menu-plus">
+                      <% @lists.each do |list| %>
+                        <li class="mx-3">
+                          <%= button_to "##{list.name}", list_recommendation_lists_path(list, recommendation_id: recommendation.id), class: "btn-clean dropdown-menu-text" %>
+                        </li>
+                      <% end %>
+                    </ul>
+                  </div>
+                </div>
+                <p class="badge rounded-pill" style="color: black; background-color: <%= category_colors[recommendation.item.category.name] %>;">
+                  #<%= recommendation.item.category.name %>
+                </p>
+                <p class="card-badge badge rounded-pill text-bg-secondary">@<%= recommendation.giver.nickname %></p>
+                <p class="card-comment">/ <%= recommendation.comment %></p>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
       </div>
-
     </div>
   </div>
-
 </div>
-
-<!-- recommendations back up
-
-  <div class="d-flex justify-content-between flex-grow-1 mx-3 my-3 align-items-center">
-    <button class="btn-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRecommendations" aria-expanded="false" aria-controls="collapseRecommendations">
-      > my mendlies
-    </button>
-
-    <div><%= link_to "Add new recommendation", new_recommendation_path, class: "btn btn-primary btn-sm",
-        style: "--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" %>
-    </div>
-  </div>
-
-  <div class="collapse" id="collapseRecommendations">
-    <div class="card card-body block-collapse">
-
-      <div class="d-flex align-content-start flex-wrap w-100">
-        <% @recommendations.each do |recommendation| %>
-          <div class="box-list flex-grow-1">
-
-            <h4><%= recommendation.item.category.name %></h4>
-            <h6><%=recommendation.item.genre %></h6>
-            <h5 class=""><%= recommendation.item.title %></h5>
-            <p class="">  <%= recommendation.comment %></p>
-
-          </div>
-        <% end %>
-      </div>
-
-    </div>
-  </div>
-
-</div>
--->

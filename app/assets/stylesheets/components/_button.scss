@@ -1,3 +1,10 @@
+.btn-pill {
+  border-radius: 25px !important;
+  padding: 5px 10px 5px 10px !important;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
 .btn-filters {
   border-radius: 25px !important;
   // background-color: rgb(76, 162, 209);
@@ -16,12 +23,23 @@
   margin-left: 0px;
   text-decoration: none;
   background-color: transparent;
+  color: whitesmoke;
 }
 
 .btn-collapse:hover {
-  background-color: #e3ca90;
+  background-color: #444;
 }
 
 .block-collapse {
-  background-color:#ffe5a9 !important;
+  background-color:#323b3b !important;
+}
+
+.btn-clean {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
 }
