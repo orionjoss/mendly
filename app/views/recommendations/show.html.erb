@@ -19,8 +19,8 @@
     <button class="btn btn-outline-primary btn-sm btn-pill dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">add to list</button>
     <ul class="dropdown-menu dropdown-menu-plus">
       <% @lists.each do |list| %>
-        <li>
-          <%= button_to "# #{list.name}", list_recommendation_lists_path(list, recommendation_id: @recommendation.id) %>
+        <li class="mx-3">
+          <%= button_to "##{list.name}", list_recommendation_lists_path(list, recommendation_id: @recommendation.id), class: "btn-clean dropdown-menu-text" %>
         </li>
       <% end %>
     </ul>
