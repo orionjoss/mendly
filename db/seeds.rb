@@ -1,6 +1,6 @@
 require 'faker'
 
-puts "1️⃣  First things first ... 🧽 Cleaning database 🫧 ..."
+puts "🧹 Cleaning database..."
 Message.destroy_all
 ListRecommendation.destroy_all
 Recommendation.destroy_all
@@ -9,9 +9,8 @@ Item.destroy_all
 Category.destroy_all
 User.destroy_all
 
-# CREATING USERS
 
-puts '... 💥 Creating fake users ...'
+puts '...Creating fake users...'
 10.times do
   name = Faker::TvShows::GameOfThrones.character
   nickname = Faker::TvShows::SouthPark.character
@@ -26,35 +25,24 @@ puts '... 💥 Creating fake users ...'
   )
 end
 
-puts '✔️ Successfully created Users! 👤 '
+puts ' ✔️ Successfully created ===> Users'
 
 
-#CREATING CATEGORIES
-
-puts '... 💥 Creating fake categories ... '
+puts '...Creating fake categories... '
 categories = ["Movie", "Documentary", "Animation", "Comic Book", "Music", "Book", "Graphic Novel", "App","Videogame", "Podcast", "TV Show", "Youtube Channel"]
 
 genre = ["Horror"]
-
-# TO-DO: FIX THIS GENRES LATER:
-# genre = [
-#   "Action", "Comedy", "Drama", "Sci-Fi", "Horror","Romance", "Thriller", "Adventure", "Fantasy", "Mystery", "Pop", "Rock", "Hip-Hop", "Jazz", "Electronic","Country", "Classical", "R&B", "Indie", "Reggae", "Superhero", "Fantasy", "Horror", "Mystery", "Sci-Fi", "Romance", "Adventure", "Crime", "Historical", "Thriller", "Productivity", "Social Networking", "Entertainment", "Education", "Health & Fitness", "Travel", "News", "Photography", "Finance", "Gaming"
-# ]
 
 categories.each do |category|
   Category.create(name: category)
 end
 
-puts '✔️ Successfully created Categories! 🏷️ '
+puts ' ✔️ Successfully created ===> Categories'
 
 
-# CREATING ITEMS
-
-puts '... 💥 Creating fake items...'
+puts '...Creating fake items...'
 
 categories = Category.all
-
-TODO - Create specific genres for each one of the categories.
 
 movie_genre = [
   "Action", "Comedy", "Drama", "Sci-Fi", "Horror",
@@ -114,7 +102,6 @@ categories.each do |category|
         category: category,
         title: Faker::Book.title,
         genre: Faker::Book.genre,
-        # genre: Faker::Book.book_genre.select.random,
         description: Faker::Lorem.paragraph,
         author: Faker::Book.author,
         release_date: Faker::Date.between(from: '2000-01-01', to: '2023-08-29')
@@ -152,11 +139,9 @@ categories.each do |category|
   end
 end
 
-puts '✔️ Successfully created Items! 📚 '
+puts ' ✔️ Successfully created ===> Items'
 
-# CREATING RECOMMENDATIONS
-
-puts '... 💥 Creating fake recommendations'
+puts '...Creating fake recommendations...'
 100.times do
   Recommendation.create(
     comment: Faker::Quote.yoda,
@@ -166,9 +151,8 @@ puts '... 💥 Creating fake recommendations'
   )
 end
 
-puts '✔️ Successfully created Recommendations! 🎗️ '
+puts ' ✔️ Successfully created ===> Recommendations '
 
-# CREATING MESSAGES
 puts '... Creating fake messages...'
 recommendations = Recommendation.all
 
@@ -179,4 +163,4 @@ recommendations.each do |recommendation|
   )
 end
 
-puts '✔️ Successfully created Messages! 💬 '
+puts ' ✔️ Successfully created ===> Messages'
