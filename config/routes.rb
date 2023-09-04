@@ -12,9 +12,10 @@ Rails.application.routes.draw do
 
   get "/chat", to: "pages#chat"
 
+  get '/generate_text', to: 'application#generate_text'
+
   # get "/message", to: "pages#message"
 
-  get '/chatbot', to: 'pages#chatbot'
 
 
 
