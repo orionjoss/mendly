@@ -16,5 +16,9 @@ class PagesController < ApplicationController
     # chatbot sends message saying "recommendation added successfully"
   end
 
-
+    def chatbot
+    client = ChatGPT4Client.new
+    @text = client.chatbot(params[:prompt], params[:length])
+    render json: { text: @text }
+    end
 end

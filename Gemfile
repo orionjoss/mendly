@@ -79,3 +79,5 @@ group :test do
 end
 
 gem "faker"
+
+gem 'openai'
