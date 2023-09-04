@@ -9,4 +9,15 @@ Rails.application.routes.draw do
     resources :recommendation_lists, only: %i[create destroy]
   end
   resources :users, only: %i[show]
+
+  get "/chat", to: "pages#chat"
+
+  # get "/message", to: "pages#message"
+
+  get '/chatbot', to: 'pages#chatbot'
+
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  # Defines the root path route ("/")
+  # root "articles#index"
 end
