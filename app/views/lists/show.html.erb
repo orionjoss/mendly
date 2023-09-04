@@ -1,46 +1,73 @@
-<div class="container mt-3">
-<!--  <h1>List number <%= @list.id %></h1> -->
-  <div class="box-lists flex-grow-1">
-    <h1 class="box-lists-text"><%= @list.name %> list</h1>
-    
-    <div class="d-flex justify-content-between">
-      <%= link_to "<", home_path, class: "btn btn-outline-secondary btn-pill btn-bar text-white btn-sm mx-1" %>
+<div class="container mt-4">
 
-      <%= link_to "X Delete list",
-            list_path(@list),
-            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-            class: "btn btn-outline-danger btn-pill btn-bar btn-sm" %>
-    </div>
+  <div class="d-flex justify-content-between mb-2">
+  <%= link_to "< back", home_path, class: "btn btn-outline-secondary btn-pill btn-bar text-white btn-sm mx-1" %>
+
+  <%= link_to "x delete",
+              list_path(@list),
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+              class: "btn btn-outline-secondary btn-pill btn-bar btn-sm" %>
   </div>
 
+  <div class="box-lists-one flex-grow-1 mt-3">
+    <div>
+      <h1 class="box-lists-one-text mb-5"><%= @list.name %> list</h1>
+    </div>
 
+    <div>
+    <button class="btn btn-outline-primary btn-sm btn-pill dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">+ add mendly</button>
+        <ul class="dropdown-menu dropdown-menu-plus">
+          <% @all_recommendations.each do |recommendation| %>
+            <li class="mx-3">
+              <%= button_to "##{recommendation.item.title}", list_recommendation_lists_path(@list, recommendation_id: recommendation.id), class: "btn-clean dropdown-menu-text" %>
+            </li>
+          <% end %>
+        </ul>
 
-<% category_colors = {
-     "Film" => "#36c3bb",
-     "Documentary" => "#36c3bb",
-     "Animation" => "#36c3bb",
-     "Comic Book" => "#a3f263",
-     "Music" => "#36c3bb",
-     "Book" => "#a3f263",
-     "Graphic Novel" => "#a3f263",
-     "Videogame" => "#ff7b62",
-     "Podcast" => "#36c3bb",
-     "TV Show" => "#36c3bb",
-     "Youtube Channel" => "#36c3bb"
-   } %>
+        <%= link_to "+ new mendly", new_recommendation_path, class: "btn btn-outline-primary btn-sm btn-filters"%>
+    </div>
+
+  </div>
 
   <div class="d-flex align-content-start flex-wrap w-100">
+
+  <% category_colors = {
+      "Film" => "#36c3bb",
+      "Documentary" => "#36c3bb",
+      "Animation" => "#36c3bb",
+      "Comic Book" => "#a3f263",
+      "Music" => "#36c3bb",
+      "Book" => "#a3f263",
+      "Graphic Novel" => "#a3f263",
+      "Videogame" => "#ff7b62",
+      "Podcast" => "#36c3bb",
+      "TV Show" => "#36c3bb",
+      "Youtube Channel" => "#36c3bb"
+    } %>
+
   <% @recommendations.reverse_each do |recommendation| %>
       <%= link_to recommendation_path(recommendation), class: "box-cards flex-grow-1" do %>
         <div class="col">
+        <div class="d-flex justify-content-between align-items-center">
           <h5 class="card-item-title"><%= recommendation.item.title %></h5>
+
+<!-- <%= link_to list_recommendation_list_path(@list) do %> -->
+<!-- <% end %>  -->
+
+        </div>
           <p class="badge rounded-pill" style="color: black; background-color: <%= category_colors[recommendation.item.category.name] %>;">
             #<%= recommendation.item.category.name %>
           </p>
           <p class="card-badge badge rounded-pill text-bg-secondary">@<%= recommendation.giver.nickname %></p>
           <p class="card-comment">/ <%= recommendation.comment %></p>
+
         </div>
       <% end %>
-    <% end %>
+
+<!--  <div>  <%= link_to "x", list_recommendation_list_path(@list_recommendations),
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+              class: "btn btn-outline-secondary btn-sm" %></div>
+-->
+      <% end %>
   </div>
 </div>
