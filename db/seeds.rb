@@ -54,57 +54,57 @@ puts '... 💥 Creating fake items...'
 
 categories = Category.all
 
-#TODO - Create specific genres for each one of the categories.
+TODO - Create specific genres for each one of the categories.
 
-# movie_genre = [
-#   "Action", "Comedy", "Drama", "Sci-Fi", "Horror",
-#   "Romance", "Thriller", "Adventure", "Fantasy", "Mystery"
-# ]
+movie_genre = [
+  "Action", "Comedy", "Drama", "Sci-Fi", "Horror",
+  "Romance", "Thriller", "Adventure", "Fantasy", "Mystery"
+]
 
-# podcast_genre = [
-#   "True Crime", "Comedy", "News", "Interview", "Education",
-#   "Technology", "History", "Health", "Storytelling", "Music"
-# ]
+podcast_genre = [
+  "True Crime", "Comedy", "News", "Interview", "Education",
+  "Technology", "History", "Health", "Storytelling", "Music"
+]
 
-# music_genre = [
-#   "Pop", "Rock", "Hip-Hop", "Jazz", "Electronic",
-#   "Country", "Classical", "R&B", "Indie", "Reggae"
-# ]
+music_genre = [
+  "Pop", "Rock", "Hip-Hop", "Jazz", "Electronic",
+  "Country", "Classical", "R&B", "Indie", "Reggae"
+]
 
-# youtube_genre = [
-#   "Gaming", "Cooking", "Travel", "Beauty", "Science",
-#   "DIY", "Fashion", "Fitness", "Comedy", "Music"
-# ]
+youtube_genre = [
+  "Gaming", "Cooking", "Travel", "Beauty", "Science",
+  "DIY", "Fashion", "Fitness", "Comedy", "Music"
+]
 
-# videogame_genre = [
-#   "RPG", "FPS", "Adventure", "Puzzle", "Simulation",
-#   "Racing", "Sports", "Strategy", "Fighting", "Horror"
-# ]
+videogame_genre = [
+  "RPG", "FPS", "Adventure", "Puzzle", "Simulation",
+  "Racing", "Sports", "Strategy", "Fighting", "Horror"
+]
 
-# animation_genre = [
-#   "Anime", "Cartoon", "Stop-Motion", "3D Animation", "Fantasy",
-#   "Sci-Fi", "Comedy", "Drama", "Adventure", "Musical"
-# ]
+animation_genre = [
+  "Anime", "Cartoon", "Stop-Motion", "3D Animation", "Fantasy",
+  "Sci-Fi", "Comedy", "Drama", "Adventure", "Musical"
+]
 
-# graphic_novel_genre = [
-#   "Superhero", "Fantasy", "Horror", "Mystery", "Sci-Fi",
-#   "Romance", "Adventure", "Crime", "Historical", "Thriller"
-# ]
+graphic_novel_genre = [
+  "Superhero", "Fantasy", "Horror", "Mystery", "Sci-Fi",
+  "Romance", "Adventure", "Crime", "Historical", "Thriller"
+]
 
-# tv_show_genre = [
-#   "Drama", "Comedy", "Crime", "Fantasy", "Sci-Fi",
-#   "Thriller", "Mystery", "Romance", "Horror", "Documentary"
-# ]
+tv_show_genre = [
+  "Drama", "Comedy", "Crime", "Fantasy", "Sci-Fi",
+  "Thriller", "Mystery", "Romance", "Horror", "Documentary"
+]
 
-# documentary_genre = [
-#   "Nature", "History", "Science", "True Crime", "Social Issues",
-#   "Biography", "Travel", "Music", "Technology", "Sports"
-# ]
+documentary_genre = [
+  "Nature", "History", "Science", "True Crime", "Social Issues",
+  "Biography", "Travel", "Music", "Technology", "Sports"
+]
 
-# app_genre = [
-#   "Productivity", "Social Networking", "Entertainment", "Education", "Health & Fitness",
-#   "Travel", "News", "Photography", "Finance", "Gaming"
-# ]
+app_genre = [
+  "Productivity", "Social Networking", "Entertainment", "Education", "Health & Fitness",
+  "Travel", "News", "Photography", "Finance", "Gaming"
+]
 
 categories.each do |category|
   5.times do

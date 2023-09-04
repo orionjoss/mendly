@@ -25,13 +25,14 @@
       <%= yield %>
     </div>
 
-
+  <%# Search Bar display %>
     <div class="body-search-bar">
       <form class="d-flex">
         <input class="form-control search-bar-plus me-2" type="search" placeholder="Find a list or recommendation" aria-label="Search">
         <button class="btn btn-outline-primary btn-pill" type="submit">Go!</button>
       </form>
     </div>
+
     <%= render "shared/flashes" %>
   </body>
 </html>
