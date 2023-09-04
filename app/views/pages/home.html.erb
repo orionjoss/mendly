@@ -104,7 +104,7 @@
                   #<%= recommendation.item.category.name %>
                 </p>
                 <p class="card-badge badge rounded-pill text-bg-secondary">@<%= recommendation.giver.nickname %></p>
-                <p class="card-comment">/ <%= recommendation.comment %></p>
+                <p class="card-comment">/ <%= recommendation.comment.truncate(100) %></p>
               </div>
             <% end %>
           <% end %>

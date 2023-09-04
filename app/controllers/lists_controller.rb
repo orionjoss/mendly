@@ -2,6 +2,8 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     @recommendations = @list.recommendations
+    @all_recommendations = Recommendation.last(15)
+    @list_recommendations = ListRecommendation.all
   end
 
   def new
@@ -24,6 +26,8 @@ class ListsController < ApplicationController
     @list.destroy
     redirect_to home_path
   end
+
+  private
 
   def list_params
     params.require(:list).permit(:name)
