@@ -6,17 +6,12 @@ class MessagesController < ApplicationController
     @message.user = current_user
     @message.recommendation_id = nil
 
-    gpt_response = OpenaiService.new(params["message"]["content"]).call
-    raise
+    openai_service = OpenaiService.new(params["message"]["content"])
+
+    gpt_response = openai_service.call
 
     if gpt_response.present?
-      @message.response = gpt_response
-    end
-
-    if @message.save
-      redirect_to chatroom_path(@chatroom)
-    else
-      render "chatrooms/show", status: :unprocessable_entity
+      @message.gpt_response = gpt_response
     end
 
     if @message.save
@@ -25,6 +20,7 @@ class MessagesController < ApplicationController
       render "chatrooms/show", status: :unprocessable_entity
     end
   end
+
 
 #Generate a response using ChatGPT
   #Define a response based on a chat GPT query
