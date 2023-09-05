@@ -2,6 +2,7 @@ require 'faker'
 
 puts "🧹 Cleaning database..."
 Message.destroy_all
+Chatroom.destroy_all
 ListRecommendation.destroy_all
 Recommendation.destroy_all
 List.destroy_all
@@ -11,19 +12,74 @@ User.destroy_all
 
 
 puts '...Creating fake users...'
-10.times do
-  name = Faker::TvShows::GameOfThrones.character
-  nickname = Faker::TvShows::SouthPark.character
 
-  User.create!(
-    email: "#{Faker::TvShows::GameOfThrones.character.split.first}@gmail.com",
-    password: "000000",
-    password_confirmation: "000000",
-    first_name: name.split(" ").first,
-    last_name: name.split(" ").last,
-    nickname: nickname.split(" ").first
-  )
-end
+User.create!(
+  email: "orion@gmail.com",
+  password: "000000",
+  password_confirmation: "000000",
+  first_name: "Orion",
+  last_name: "Joss",
+  nickname: "OJ"
+)
+
+User.create!(
+  email: "jorge@gmail.com",
+  password: "000000",
+  password_confirmation: "000000",
+  first_name: "Jorge",
+  last_name: "Marques",
+  nickname: "Jorginho"
+)
+
+User.create!(
+  email: "hugo@gmail.com",
+  password: "000000",
+  password_confirmation: "000000",
+  first_name: "Hugo",
+  last_name: "Pereira",
+  nickname: "XScessiveHunter"
+)
+
+User.create!(
+  email: "sofia@gmail.com",
+  password: "000000",
+  password_confirmation: "000000",
+  first_name: "Sofia",
+  last_name: "Laurentino",
+  nickname: "Sofi"
+)
+
+User.create!(
+  email: "william@gmail.com",
+  password: "000000",
+  password_confirmation: "000000",
+  first_name: "William",
+  last_name: "Ayam",
+  nickname: "Will"
+)
+
+User.create!(
+  email: "joan@gmail.com",
+  password: "000000",
+  password_confirmation: "000000",
+  first_name: "Joan",
+  last_name: "Baez",
+  nickname: "Jojo"
+)
+
+# 10.times do
+#   name = Faker::TvShows::GameOfThrones.character
+#   nickname = Faker::TvShows::SouthPark.character
+
+#   User.create!(
+#     email: "#{Faker::TvShows::GameOfThrones.character.split.first}@gmail.com",
+#     password: "000000",
+#     password_confirmation: "000000",
+#     first_name: name.split(" ").first,
+#     last_name: name.split(" ").last,
+#     nickname: nickname.split(" ").first
+#   )
+# end
 
 puts ' ✔️ Successfully created ===> Users'
 
@@ -153,14 +209,9 @@ end
 
 puts ' ✔️ Successfully created ===> Recommendations '
 
-puts '... Creating fake messages...'
-recommendations = Recommendation.all
+puts '...Creating chatroom...'
+Chatroom.create(
+  name: "AI Library Assistant"
+)
 
-recommendations.each do |recommendation|
-  Message.create(
-    user: User.all.sample,
-    recommendation: recommendation
-  )
-end
-
-puts ' ✔️ Successfully created ===> Messages'
+puts ' ✔️ Successfully created ===> Chatroom'
