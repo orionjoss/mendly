@@ -3,21 +3,8 @@
 
  <div class="messages">
     <% @chatroom.messages.each do |message| %>
-      <div id="message-<%= message.id %>">
-        <small>
-          <strong><%= message.user.nickname %></strong>
-          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-        </small>
-        <p><%= message.content %></p>
-
-        <% if message.gpt_response.present? %>
-        <div class="gpt-response">
-          <i>AI Response:</i>
-          <p><%= message.gpt_response %></p>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+      <%= render 'messages/message', message: message %>
+    <% end %>
 </div>
 
 <div class="body-search-bar">

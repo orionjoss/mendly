@@ -1,0 +1,14 @@
+<div id="message-<%= message.id %>">
+  <small>
+    <strong><%= message.user.nickname %></strong>
+    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+  </small>
+  <p><%= message.content %></p>
+
+  <% if message.gpt_response.present? %>
+    <div class="gpt-response">
+      <i>Mandy Lee</i>
+      <p><%= message.gpt_response %></p>
+    </div>
+  <% end %>
+</div>
