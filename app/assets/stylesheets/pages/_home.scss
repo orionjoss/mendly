@@ -6,14 +6,15 @@ html, body, h1, h2, h3, h4, h5, h6, p, ul, li {
 
 /* Set a background color and font styles for the entire page */
 body {
-  background-color: #0e6dfd;
-  color: #000; /* Changed text color to black (#000) */
+  background-color: #000000;
+  color: #ffffff; /* Changed text color to black (#000) */
   font-family: Arial, sans-serif;
 }
 
 /* Style the header section */
-header {
+#banner {
   text-align: center;
+  color: #fff;
   padding: 20px;
 }
 
@@ -149,4 +150,3 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
-
