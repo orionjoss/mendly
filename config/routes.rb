@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   end
   resources :users, only: %i[show]
 
+  resources :chatrooms, only: :show
+
   get "/chat", to: "pages#chat"
 
   # get "/message", to: "pages#message"
