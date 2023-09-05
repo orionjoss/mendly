@@ -34,7 +34,7 @@
 
   <div class="d-flex justify-content-between flex-grow-1 mx-3 my-3 align-items-center">
     <button class="btn-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseList" aria-expanded="false" aria-controls="collapseLists">
-      > my lists
+       My collections
     </button>
 
     <div>
@@ -58,7 +58,7 @@
 
   <div class="d-flex justify-content-between flex-grow-1 mx-3 my-3 align-items-center">
     <button class="btn-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRecommendations" aria-expanded="false" aria-controls="collapseRecommendations">
-      > my mendlies
+       My mendlies
     </button>
 
     <div>
@@ -70,17 +70,18 @@
     <div class="card card-body block-collapse">
       <div class="d-flex align-content-start flex-wrap w-100">
         <% category_colors = {
-            "Film" => "#36c3bb",
-            "Documentary" => "#36c3bb",
-            "Animation" => "#36c3bb",
-            "Comic Book" => "#a3f263",
-            "Music" => "#36c3bb",
-            "Book" => "#a3f263",
-            "Graphic Novel" => "#a3f263",
-            "Videogame" => "#ff7b62",
-            "Podcast" => "#36c3bb",
-            "TV Show" => "#36c3bb",
-            "Youtube Channel" => "#36c3bb"
+            "Film" => "#F72585",
+            "Documentary" => "#F72585",
+            "Animation" => "#F72585",
+            "Comic Book" => "#4cc9f0",
+            "Music" => "#F72585",
+            "Book" => "#0d9d",
+            "Graphic Novel" => "#4cc9f0",
+            "Videogame" => "#4361ee",
+            "Podcast" => "#820ead",
+            "TV Show" => "#F72585",
+            "Youtube Channel" => "#F72585",
+            "App" => "#4361ee"
           } %>
 
         <div class="d-flex align-content-start flex-wrap w-100">
@@ -90,7 +91,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <h5 class="card-item-title mb-0"><%= recommendation.item.title %></h5>
                   <div>
-                    <button class="btn btn-outline-secondary btn-sm btn-filters" type="button" data-bs-toggle="dropdown" aria-expanded="false"><strong> + </strong></button>
+                    <div class="fa-solid fa-circle-plus btn-dropdown" type="div" data-bs-toggle="dropdown" aria-expanded="false"></div>
                     <ul class="dropdown-menu dropdown-menu-plus">
                       <% @lists.each do |list| %>
                         <li class="mx-3">
@@ -100,7 +101,7 @@
                     </ul>
                   </div>
                 </div>
-                <p class="badge rounded-pill" style="color: black; background-color: <%= category_colors[recommendation.item.category.name] %>;">
+                <p class="badge rounded-pill" style="color: white; background-color: <%= category_colors[recommendation.item.category.name] %>;">
                   #<%= recommendation.item.category.name %>
                 </p>
                 <p class="card-badge badge rounded-pill text-bg-secondary">@<%= recommendation.giver.nickname %></p>

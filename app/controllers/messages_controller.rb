@@ -1,11 +1,19 @@
 class MessagesController < ApplicationController
   def create
-
     @chatroom = Chatroom.find(params[:chatroom_id])
     @message = Message.new(message_params)
     @message.chatroom = @chatroom
     @message.user = current_user
     @message.recommendation_id = nil
+
+    openai_service = OpenaiService.new(params["message"]["content"])
+
+    gpt_response = openai_service.call
+
+    if gpt_response.present?
+      @message.gpt_response = gpt_response
+    end
+
     if @message.save
       redirect_to chatroom_path(@chatroom)
     else
@@ -14,18 +22,13 @@ class MessagesController < ApplicationController
   end
 
 
-# Generate a response using ChatGPT
-# gpt_response = generate_gpt_response(@message.content)
-
-# if gpt_response.present?
-#   @message.gpt_response = gpt_response
-# end
-
-# if @message.save
-#   redirect_to chatroom_path(@chatroom)
-# else
-#   render "chatrooms/show", status: :unprocessable_entity
-# end
+#Generate a response using ChatGPT
+  #Define a response based on a chat GPT query
+  #call it
+  #generate response as a message
+  #check if response is not empty
+  #User will ask specific queries about their own data
+  #How chat GPT will access our own data?
 
 private
 
