@@ -15,7 +15,7 @@
     </div>
 
     <div>
-    <button class="btn btn-outline-secondary btn-sm btn-pill dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">+ add mendly</button>
+    <button class="btn btn-outline-secondary btn-sm btn-pill dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">add existing mendly</button>
         <ul class="dropdown-menu dropdown-menu-plus">
           <% @all_recommendations.each do |recommendation| %>
             <li class="mx-3">
@@ -24,7 +24,7 @@
           <% end %>
         </ul>
 
-        <%= link_to "+ new mendly", new_recommendation_path, class: "btn btn-outline-secondary btn-sm btn-filters"%>
+        <%= link_to "create mendly", new_recommendation_path, class: "btn btn-outline-secondary btn-sm btn-filters"%>
     </div>
 
   </div>
