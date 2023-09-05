@@ -1,9 +1,7 @@
-<h1>This is the Chatroom</h1>
-
 <div class="container chatroom">
-  <h1>#<%= @chatroom.name %></h1>
+  <h1>Your<%= @chatroom.name %></h1>
 
-  <div class="messages">
+ <div class="messages">
     <% @chatroom.messages.each do |message| %>
       <div id="message-<%= message.id %>">
         <small>
@@ -11,7 +9,25 @@
           <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
         </small>
         <p><%= message.content %></p>
-      </div>
+
+        <% if message.gpt_response.present? %>
+        <div class="gpt-response">
+          <i>AI Response:</i>
+          <p><%= message.gpt_response %></p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<div class="body-search-bar">
+  <% if @chatroom && @message %>
+    <%= simple_form_for [@chatroom, @message], html: { class: "d-flex" } do |f| %>
+      <%= f.input :content, label: false, placeholder: "Message ##{h(@chatroom.name)}", wrapper_html: { class: "flex-grow-1" } %>
+      <%= f.submit "Send", class: "btn btn-light mb-3 custom-button" %>
     <% end %>
-  </div>
+  <% else %>
+    <!-- Handle the case where @chatroom or @message is nil -->
+  <% end %>
+
 </div>
