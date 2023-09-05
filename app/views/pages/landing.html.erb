@@ -1,10 +1,53 @@
-<div id="banner" class="container text-center py-5">
-        <h1>Never have I ever...</h1>
+<div id="wrapper">
+
+<!-- top title and image + download button -->
+
+  <div id="title-copy" class="mx-3 mt-5">
+    <h1 class="title-landing">Never have I ever...</h1>
+
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
         <p>forgot a recommendation from a friend?</p>
+      </div>
+      <div class="carousel-item">
         <p>wasted time deciding what to watch</p>
+      </div>
+      <div class="carousel-item">
         <p>forgot to send a recommendation to a friend</p>
+      </div>
+      <div class="carousel-item">
         <p>took a note and forgot where was it</p>
-        <br>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+
+  <div id="main-image" class="d-flex justify-content-between mw-100">
+
+    <div id="btn-download" class="align-self-end">
+      <%= link_to "donwload", splash_path, class: "btn btn-primary btn-sm btn-filters" %>
+    </div>
+
+    <div class="img-title mt-5" >
+      <img src="https://res.cloudinary.com/div6oduuz/image/upload/v1693913305/landing-1_zu9mvs.png" class="img-fluid"/>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+</div>
+
+<div id="banner" class="container text-center py-5">
+
         <h4>Mendly helps you organize, browse and share cultural recommendations you receive from your friends</h4>
 
         <div class="cta">

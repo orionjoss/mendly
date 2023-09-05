@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#landing"
   get "home", to: "pages#home"
+  get "splash", to: "pages#splash"
 
   resources :recommendations
   patch "recommendations/:id/archive", to: "recommendations#archive"
@@ -14,8 +15,4 @@ Rails.application.routes.draw do
   resources :chatrooms, only: :show do
     resources :messages, only: :create
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
 end
