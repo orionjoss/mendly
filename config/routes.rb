@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#landing"
   get "home", to: "pages#home"
+  get "splash", to: "pages#splash"
 
   resources :recommendations
   patch "recommendations/:id/archive", to: "recommendations#archive"
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   get '/generate_text', to: 'application#generate_text'
-  
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
