@@ -67,22 +67,7 @@ User.create!(
   nickname: "Jojo"
 )
 
-# 10.times do
-#   name = Faker::TvShows::GameOfThrones.character
-#   nickname = Faker::TvShows::SouthPark.character
-
-#   User.create!(
-#     email: "#{Faker::TvShows::GameOfThrones.character.split.first}@gmail.com",
-#     password: "000000",
-#     password_confirmation: "000000",
-#     first_name: name.split(" ").first,
-#     last_name: name.split(" ").last,
-#     nickname: nickname.split(" ").first
-#   )
-# end
-
 puts ' ✔️ Successfully created ===> Users'
-
 
 puts '...Creating fake categories... '
 categories = ["Movie", "Documentary", "Animation", "Comic Book", "Music", "Book", "Graphic Novel", "App","Videogame", "Podcast", "TV Show", "Youtube Channel"]
@@ -223,7 +208,7 @@ recommendations = Recommendation.all
 
   message = Message.create(
     content: "Eternal Sunshine of the Spotless Mind.' Must watch! Jim Carrey + Kate Winslet = mind-blowing performances. 🎥🍿",
-    recommendation: recommendation,
+    recommendation_id: recommendation.id,
     user: User.all.sample,
     chatroom: chatroom
   )
