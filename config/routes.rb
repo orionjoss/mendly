@@ -8,13 +8,15 @@ Rails.application.routes.draw do
   resources :lists, only: %i[show new create destroy] do
     resources :recommendation_lists, only: %i[create destroy]
   end
+
   resources :users, only: %i[show]
 
-  get "/chat", to: "pages#chat"
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
 
-  # get "/message", to: "pages#message"
-
-  get '/chatbot', to: 'pages#chatbot'
+  get '/generate_text', to: 'application#generate_text'
+  
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
