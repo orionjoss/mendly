@@ -81,5 +81,5 @@ end
 gem "faker"
 
 gem "pg_search"
-
+gem "ruby-openai"
 gem 'openai'
