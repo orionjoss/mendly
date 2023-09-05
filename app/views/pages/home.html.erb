@@ -4,15 +4,15 @@
 <!-- filter group-->
   <div class="d-flex justify-content-between mx-3 mt-3 my-0">
 
-    <button type="button" class="btn btn-outline-light btn-filters btn-sm">lists</button>
+    <button type="button" class="btn btn-outline-light btn-filters btn-sm">lists </button>
     <button type="button" class="btn btn-outline-light btn-filters btn-sm">mendlies</button>
-    <button class="btn btn-outline-primary btn-sm btn-filters dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">#categories</button>
+    <button class="btn btn-outline-light btn-sm btn-filters dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">#categories</button>
     <ul class="dropdown-menu dropdown-menu-plus mt-1">
       <% @categories.each do |category| %>
         <li class="dropdown-menu-text mx-3">#<%= category.name %></li>
       <% end %>
     </ul>
-    <button class="btn btn-outline-primary btn-sm btn-filters dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@friends</button>
+    <button class="btn btn-outline-light btn-sm btn-filters dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@friends</button>
     <ul class="dropdown-menu dropdown-menu-plus mt-1">
       <% @givers.each do |giver| %>
         <li class="dropdown-menu-text mx-3">@<%= giver.nickname %></li>
