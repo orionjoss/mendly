@@ -163,6 +163,9 @@ GEM
     openai (0.3.0)
     orm_adapter (0.5.0)
     pg (1.5.3)
+    pg_search (2.3.6)
+      activerecord (>= 5.2)
+      activesupport (>= 5.2)
     popper_js (2.11.8)
     public_suffix (5.0.3)
     puma (5.6.7)
@@ -276,6 +279,7 @@ DEPENDENCIES
   jbuilder
   openai
   pg (~> 1.1)
+  pg_search
   puma (~> 5.0)
   rails (~> 7.0.7)
   sassc-rails

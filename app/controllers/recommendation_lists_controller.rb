@@ -1,6 +1,7 @@
 class RecommendationListsController < ApplicationController
   def create
-    @recommendation_list = ListRecommendation.new(recommendation_id: params[:recommendation_id], list_id: params[:list_id])
+    @recommendation_list = ListRecommendation.new(recommendation_id: params[:recommendation_id],
+                                                  list_id: params[:list_id])
 
     if @recommendation_list.save
       redirect_to list_path(params[:list_id])

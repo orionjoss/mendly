@@ -1,10 +1,15 @@
 .form-input-border {
   border-radius: 30.25rem !important;
   margin-bottom: 25px;
+  appearance: none;
 }
 
 .form-button-border {
 
   border-radius: 30.25rem !important;
 
+}
+
+.ts-control {
+  border: none;
 }
