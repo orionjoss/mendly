@@ -16,7 +16,6 @@
   100% { background-color: #f72585; }
 }
 
-
 .box-lists-one {
   background-color: black;
   margin: 0px 0px 5px 0px;
@@ -114,6 +113,21 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.box-user{
+  border-width: 2px;
+  border-color:#f72585;
+  border-radius: 25px 5px 25px 25px;
+  background-color: #4cc9f0;
+}
+
+.box-chabot{
+  border-width: 2px;
+  border-color:white;
+  border-radius: 5px 40px 40px 40px;
+  background-color:#f72585;
+
 }
 
 // externos

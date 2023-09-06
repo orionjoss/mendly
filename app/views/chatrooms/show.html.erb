@@ -4,30 +4,35 @@
  <div class="messages">
     <% @chatroom.messages.each do |message| %>
       <div id="message-<%= message.id %>">
+
         <small>
           <strong><%= message.user.nickname %></strong>
           <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
         </small>
-        <p><%= message.content %></p>
+        <div class="box-user">
+        <p class="chatbox-text px-4 py-4"><%= message.content %></p>
+        </div>
 
         <% if message.gpt_response.present? %>
-        <div class="gpt-response">
-          <i>AI Response:</i>
-          <p><%= message.gpt_response %></p>
+        <div class="gpt-response box-chatbot">
+            <i>AI Response:</i>
+            <p><%= message.gpt_response %></p>
         </div>
       <% end %>
+
     </div>
   <% end %>
 </div>
 
-<div class="body-search-bar">
+<div>
   <% if @chatroom && @message %>
-    <%= simple_form_for [@chatroom, @message], html: { class: "d-flex" } do |f| %>
-      <%= f.input :content, label: false, placeholder: "Message ##{h(@chatroom.name)}", wrapper_html: { class: "flex-grow-1" } %>
-      <%= f.submit "Send", class: "btn btn-light mb-3 custom-button" %>
+      <%= simple_form_for [@chatroom, @message], html: { class: "m-0 p-0" } do |f| %>
+    <div class="d-flex flex-row justify-content-between ">
+      <div><%= f.input :content, label: false, placeholder: "Ask #{h(@chatroom.name)}", :input_html => { :class => 'chat-search-bar my-3 w-100' }%></div>
+      <div><%= f.submit "Send", class: "btn btn-pill btn-outline-light my-3" %></div>
+    </div>
+      <% end %>
+    <% else %>
+      <!-- Handle the case where @chatroom or @message is nil -->
     <% end %>
-  <% else %>
-    <!-- Handle the case where @chatroom or @message is nil -->
-  <% end %>
-
 </div>
