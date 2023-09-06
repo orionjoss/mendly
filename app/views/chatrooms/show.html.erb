@@ -1,8 +1,8 @@
-<div class="container chatroom">
+<div class="container chatroom px-0">
 <!--  <h1>Your<%= @chatroom.name %></h1>
 -->
 
- <div class="messages">
+ <div class="messages px-3">
     <% @chatroom.messages.each do |message| %>
       <div id="message-<%= message.id %>">
 
@@ -13,13 +13,19 @@
         </div>
         </small>
         <div class="box-user">
-          <div class="chatbox-text px-4 py-3"><%= message.content %>
+          <div class="chatbox-text px-4 py-3 "><%= message.content %>
           </div>
         </div>
 
         <% if message.gpt_response.present? %>
         <div class="gpt-response">
-              <strong><p class="mt-3 mb-2">Mandy Lee:</p></strong>
+        <div id="mandy" class="d-flex justify-content-start mt-2">
+          <div>
+            <%= image_tag "https://res.cloudinary.com/div6oduuz/image/upload/v1693913255/mandy-avatar_a2hpob.png", class: "avatar-ai", alt: "dropdown menu" %>
+          </div>
+          <div class="chatbox-text-mandy mt-4">Mandy Lee</div>
+
+        </div>
               <div class="box-chatbot">
                 <div class="px-4 py-3"><%= message.gpt_response %>
                 </div>
