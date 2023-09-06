@@ -2,10 +2,10 @@
 
 
 <!-- filter group-->
-  <div class="d-flex justify-content-between mx-3 mt-3 my-0">
+  <div class="d-flex justify-content-start mx-3 mt-3 my-0">
 
-    <button type="button" class="btn btn-outline-light btn-filters btn-sm">lists </button>
-    <button type="button" class="btn btn-outline-light btn-filters btn-sm">mendlies</button>
+    <%# <button type="button" class="btn btn-outline-light btn-filters btn-sm">lists </button>
+    <button type="button" class="btn btn-outline-light btn-filters btn-sm">mendlies</button> %>
     <button class="btn btn-outline-light btn-sm btn-filters dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">#categories</button>
     <ul class="dropdown-menu dropdown-menu-plus mt-1">
       <% @categories.each do |category| %>
@@ -38,7 +38,7 @@
     </button>
 
     <div>
-      <%= link_to "+ new list", new_list_path, class: "btn btn-primary btn-sm btn-filters" %>
+      <%= link_to "+ new list", new_list_path, class: "btn btn-outline-light btn-sm btn-filters" %>
     </div>
   </div>
 
@@ -62,7 +62,7 @@
     </button>
 
     <div>
-      <%= link_to "+ new mendly", new_recommendation_path, class: "btn btn-primary btn-sm btn-filters"%>
+      <%= link_to "+ new mendly", new_recommendation_path, class: "btn btn-outline-light btn-sm btn-filters"%>
     </div>
   </div>
 

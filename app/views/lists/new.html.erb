@@ -5,11 +5,11 @@
 
     <%= simple_form_for(@list) do |form| %>
       <div class="form-inputs text-white">
-      <%= form.input :name, placeholder: "Name your list"%>
+      <%= form.input :name, label: false, placeholder: "Name your collection", input_html: { class: "form-input-border mt-3"}%>
       </div>
 
-      <div class="form-actions mt-4">
-        <%= form.button :submit, 'Create List', :class => "btn btn-sm btn-primary" %>
+      <div class="form-actions mt-4 d-flex justify-content-center">
+        <%= form.button :submit, 'Confirm', :class => "btn btn-sm btn-primary rounded-pill p-2 w-100 mt-1 mb-2" %>
       </div>
 
     <% end %>
