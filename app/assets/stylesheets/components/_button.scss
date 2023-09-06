@@ -52,4 +52,16 @@
   color: #d7d7d7;
 }
 
-
+.btn-download {
+  border-radius: 30px !important;
+  background-color: #f72585 !important;
+  color: white;
+  font-family: 'Archivo', sans-serif !important;
+  font-weight: 500;
+  font-size: 1.4em;
+  // color:whitesmoke;
+  // border: none;
+  padding: 15px 25px 15px 25px !important;
+  text-decoration: none !important;
+  transition: 0.3s ease;
+}
