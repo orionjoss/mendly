@@ -116,18 +116,19 @@
 }
 
 .box-user{
-  border-width: 2px;
-  border-color:#f72585;
+  // border-width: 5px;
+  // border-color:#f72585;
   border-radius: 25px 5px 25px 25px;
   background-color: #4cc9f0;
+  margin-left: 30px;
 }
 
-.box-chabot{
-  border-width: 2px;
-  border-color:white;
-  border-radius: 5px 40px 40px 40px;
+.box-chatbot{
+  // border-width: 5px;
+  // border-color:#ffffff;
+  border-radius: 5px 30px 30px 30px;
   background-color:#f72585;
-
+  margin-right: 30px;
 }
 
 // externos
