@@ -16,7 +16,6 @@
   100% { background-color: #f72585; }
 }
 
-
 .box-lists-one {
   background-color: black;
   margin: 0px 0px 5px 0px;
@@ -114,6 +113,22 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.box-user{
+  // border-width: 5px;
+  // border-color:#f72585;
+  border-radius: 25px 5px 25px 25px;
+  background-color: #33bde8;
+  margin-left: 30px;
+}
+
+.box-chatbot{
+  // border-width: 5px;
+  // border-color:#ffffff;
+  border-radius: 5px 30px 30px 30px;
+  background-color:#f72585;
+  margin-right: 30px;
 }
 
 // externos

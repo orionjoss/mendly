@@ -3,6 +3,14 @@
   border-radius: 12px 12px 12px 0px;
   background-image: cover;
 }
+.avatar-ai {
+  width: 50px;
+  border-radius: 50%;
+  background-image: cover;
+  position: relative;
+  bottom: -12px;
+  left: -8px;
+}
 .avatar-large {
   width: 56px;
   border-radius: 50%;
