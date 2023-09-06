@@ -20,6 +20,6 @@ class RecommendationListsController < ApplicationController
   private
 
   def recommendation_list_params
-    params.require(:list_recommendations).permit(:recommendation_id,:list_id, :list_recommendation_id)
+    params.require(:list_recommendations).permit(:recommendation_id, :list_id, :list_recommendation_id)
   end
 end
