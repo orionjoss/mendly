@@ -4,19 +4,9 @@
   </div>
 
   <div class="box-recommendation">
+    <div id="buttons" class="d-flex justify-content-between align-items-center mb-3">
 
-    <h1><strong><%= @recommendation.item.title %></strong></h1>
-    <h5><%= @recommendation.item.description %></h4>
-    <h6>by <%= @recommendation.item.author %></h3>
-    <h6><%= @recommendation.item.release_date %></h6>
-    <h6> mendled by @<%= @recommendation.giver.nickname %></h6>
-    <hr>
-    <h5>Comment: <%= @recommendation.comment %></h5>
-    <hr>
-
-    <%= link_to "←", home_path, class: "btn btn-outline-secondary btn-pill btn-bar text-gray btn-sm mx-1" %>
-
-    <button class="btn btn-outline-primary btn-sm btn-pill dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">add to collection</button>
+    <button class="btn btn-outline-secondary btn-sm btn-pill dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">add to collection</button>
     <ul class="dropdown-menu dropdown-menu-plus">
       <% @lists.each do |list| %>
         <li class="mx-3">
@@ -25,13 +15,38 @@
       <% end %>
     </ul>
 
+    <div class="fa-solid fa-share-nodes fa-lg btn-dropdown text-secondary" type="div" data-bs-toggle="dropdown" aria-expanded="false"></div>
+      <ul class="dropdown-menu dropdown-icons-plus p-3 mt-3">
+        <i class="fa-brands fa-instagram fa-2xl px-1" style="color: #bbb;"></i>
+        <i class="fa-brands fa-square-facebook fa-2xl px-1" style="color: #bbb;"></i>
+        <i class="fa-brands fa-square-whatsapp fa-2xl px-1" style="color: #bbb;"></i>
+      </ul>
+
+    </div>
+
+
+    <h1><%= @recommendation.item.title %></h1>
+    <h2>by <%= @recommendation.item.author %></h2>
+    <h3><%= @recommendation.item.description %></h3>
+    <h4>RELEASED: <strong><%= @recommendation.item.release_date %></strong></h4>
+
+    <h5> mendled by @<%= @recommendation.giver.nickname %></h5>
+    <h6>'<%= @recommendation.comment %>'</h6>
+
+    <hr>
+    <div id="buttons unimportant">
     <%= link_to "Edit", edit_recommendation_path(@recommendation), class: "btn btn-outline-secondary btn-pill btn-bar btn-sm mx-1" %>
 
     <%= link_to "Delete",
             recommendation_path(@recommendation),
             data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
             class: "btn btn-outline-secondary btn-pill btn-bar btn-sm" %>
+    </div>
+
   </div>
+    <div class="btn-back-top-left">
+    <%= link_to "←", home_path, class: "btn btn-outline-light btn-pill btn-bar text-gray btn-sm mx-1" %>
+    </div>
 
 </div>
 
