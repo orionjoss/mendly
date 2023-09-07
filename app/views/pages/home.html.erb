@@ -51,13 +51,15 @@
   <div class="d-flex justify-content-start mx-3 mt-3 my-0">
     <div class="row w-100 justify-content-center">
      <div class="col-12 my-3">
+
+     <%# Search Bar %>
     <%= form_with url: home_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
             params[:query],
             class: "form-control  btn-pill",
             placeholder: "search mendlies",
             style: "background-color: rgba(140, 140, 140, 0.5);
-            border:none; margin-right: 10px"%>
+            border:none; margin-right: 10px; color:white;"%>
 
             <%= submit_tag "→", name: "", class: "btn btn-outline-light btn-pill"%>
 
