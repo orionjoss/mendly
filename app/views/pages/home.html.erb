@@ -24,7 +24,7 @@
     </div>
   </div>
 
-  <div class="collapse show" id="collapseList">
+  <div class="collapse" id="collapseList">
     <div class="card card-body block-collapse">
       <div class="d-flex align-content-start flex-wrap w-100">
         <% @lists.reverse_each do |list| %>
@@ -114,3 +114,22 @@
   </div>
 </div>
 
+<!-- navbar botttom -->
+
+<div class="navbar-bottom">
+  <div class="navbar-icons d-flex justify-content-between">
+
+    <%= link_to chatroom_path(Chatroom.last), class: "text-decoration-none" do %>
+      <div class="text-navbar-bottom"><i class="fa-solid fa-smile fa-xl mb-3" style="color: #aaaaaa;"></i><p>AI librarian</p></div>
+    <% end %>
+
+    <%= link_to new_recommendation_path, class: "text-decoration-none" do %>
+      <div class="text-navbar-bottom"><i class="fa-solid fa-plus fa-beat fa-xl mb-3" style="color: #aaaaaa;"></i><p>New mendly</p></div>
+    <% end %>
+
+    <%= link_to home_path, class: "text-decoration-none" do %>
+      <div class="text-navbar-bottom"><i class="fa-solid fa-layer-group fa-xl mb-3" style="color: #aaaaaa;"></i><p>Library</p></div>
+    <% end %>
+
+  </div>
+</div>

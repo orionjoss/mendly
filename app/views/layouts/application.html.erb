@@ -19,10 +19,11 @@
 
   <body style="min-height: 100vh; display: flex; flex-direction: column;">
     <div>
-      <% if !current_path = splash_path %>
+      <% unless request.path == splash_path %>
         <%= render "shared/navbar" %>
       <% end %>
     </div>
+
 
     <div class="body-yield flex-grow-1">
       <%= yield %>
