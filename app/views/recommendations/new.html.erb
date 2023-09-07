@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container background-gradient-forms">
 
   <div class="box-lists box-lists-no-gradient">
     <h1 class="box-lists-text">New Mendly</h1>
@@ -8,11 +8,10 @@
         <%= form.association :item, label: "Name", placeholder: "Name your recommendation", input_html: { class: "form-input-border", data: {controller: "tom-select"}} %>
         <%= form.association :giver, label: "Mendler", label_method: :nickname, placeholder: "Who gave you this recommendation?", input_html: { class: "form-input-border", data: {controller: "tom-select"}} %>
         <%= form.input :comment, placeholder: "share your thoughts", input_html: { class: "form-input-border" } %>
-
       </div>
 
-    <div class="form-actions mt-4 d-flex justify-content-center">
-      <%= form.button :submit, 'Confirm', class: "btn btn-sm btn-primary rounded-pill p-2 w-100 mt-3 mb-3" %>
+    <div class="form-actions d-flex justify-content-center">
+      <%= form.button :submit, 'Confirm', class: "btn btn-sm btn-outline-light rounded-pill p-2 w-100 mt-3 mb-3" %>
     </div>
 
 
