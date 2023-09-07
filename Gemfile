@@ -79,6 +79,7 @@ group :test do
 end
 
 gem "faker"
-
 gem "pg_search"
 gem "ruby-openai"
+gem "langchainrb", "~> 0.6.13"
+gem "sequel"

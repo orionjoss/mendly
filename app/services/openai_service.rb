@@ -1,4 +1,6 @@
 require "openai"
+require "langchain"
+
 
 class OpenaiService
   attr_reader :client, :prompt
@@ -6,6 +8,8 @@ class OpenaiService
   def initialize(prompt)
     @client = OpenAI::Client.new
     @prompt = prompt
+    @database = Langchain::Tool::Database.new(connection_string: "postgres://localhost:5432/mendly_development")
+    @agent = Langchain::Agent::SQLQueryAgent.new(llm: Langchain::LLM::OpenAI.new(api_key: ENV["OPENAI_API_KEY"]), db: @database)
   end
 
   def call
@@ -20,5 +24,9 @@ class OpenaiService
     )
     # you might want to inspect the response and see what the api is giving you
     return response["choices"][0]["message"]["content"]
+  end
+
+  def call_langchain(question)
+    @agent.run(question: question)
   end
 end
