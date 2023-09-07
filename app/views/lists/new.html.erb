@@ -1,15 +1,15 @@
-<div class="container mt-5">
+<div class="container background-gradient-forms">
 
   <div class="box-lists box-lists-no-gradient">
     <h1 class="box-lists-text">New Collection</h1>
 
     <%= simple_form_for(@list) do |form| %>
-      <div class="form-inputs text-white">
+      <div class="form-inputs text-white mt-5">
       <%= form.input :name, label: false, placeholder: "Name your collection", input_html: { class: "form-input-border mt-3"}%>
       </div>
 
-      <div class="form-actions mt-4 d-flex justify-content-center">
-        <%= form.button :submit, 'Confirm', :class => "btn btn-sm btn-primary rounded-pill p-2 w-100 mt-1 mb-2" %>
+      <div class="form-actions d-flex justify-content-center">
+        <%= form.button :submit, 'Confirm', :class => "btn btn-sm btn-outline-light rounded-pill p-2 w-100" %>
       </div>
 
     <% end %>
