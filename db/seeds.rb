@@ -64,7 +64,7 @@ User.create!(
   password_confirmation: "000000",
   first_name: "Thomas",
   last_name: "Ayala",
-  nickname: "Tom Aya"
+  nickname: "Tom Ayala"
 )
 
 User.create!(
@@ -358,42 +358,42 @@ Chatroom.create(
 
 puts ' ✔️ Successfully created ===> Chatroom'
 
-puts '... Creating AI welcome messages...'
-recommendations = Recommendation.all
-  recommendation = recommendations.sample
-  chatroom = Chatroom.first
+# puts '... Creating AI welcome messages...'
+# recommendations = Recommendation.all
+#   recommendation = recommendations.sample
+#   chatroom = Chatroom.first
 
-  message = Message.create(
-    gpt_response: "👋 Hi, I'm Mandy Lee, your personal AI Librarian.",
-    recommendation_id: recommendation.id,
-    user: User.first,
-    chatroom: chatroom
-  )
-  message = Message.create(
-    gpt_response: "I can add and retrieve items from your personal media library to make sure you will always have the recommendations from your friends at hand. 🎥🍿",
-    recommendation_id: recommendation.id,
-    user: User.all.sample,
-    chatroom: chatroom
-  )
+#   message = Message.create(
+#     gpt_response: "👋 Hi, I'm Mandy Lee, your personal AI Librarian.",
+#     recommendation_id: recommendation.id,
+#     user: User.first,
+#     chatroom: chatroom
+#   )
+#   message = Message.create(
+#     gpt_response: "I can add and retrieve items from your personal media library to make sure you will always have the recommendations from your friends at hand. 🎥🍿",
+#     recommendation_id: recommendation.id,
+#     user: User.all.sample,
+#     chatroom: chatroom
+#   )
 
-  message = Message.create(
-    gpt_response: "Here are some shortcuts to help you save time:
-    \r\n 👉 '#' for | Media category |
-    \r\n 👉 ':' for | Title of your item |
-    \r\n 👉 '@' for | Recommender |
-    \r\n 👉 '/' for your | Personal note |",
-    recommendation_id: recommendation.id,
-    user: User.all.sample,
-    chatroom: chatroom
-  )
+#   message = Message.create(
+#     gpt_response: "Here are some shortcuts to help you save time:
+#     \r\n 👉 '#' for | Media category |
+#     \r\n 👉 ':' for | Title of your item |
+#     \r\n 👉 '@' for | Recommender |
+#     \r\n 👉 '/' for your | Personal note |",
+#     recommendation_id: recommendation.id,
+#     user: User.all.sample,
+#     chatroom: chatroom
+#   )
 
-  message = Message.create(
-    gpt_response: "For example, you can save a recommendation by typing: #movie :Inside Out @jorge /Animation to understand how our emotions and memory works",
-    recommendation_id: recommendation.id,
-    user: User.all.sample,
-    chatroom: chatroom
-  )
+#   message = Message.create(
+#     gpt_response: "For example, you can save a recommendation by typing: #movie :Inside Out @jorge /Animation to understand how our emotions and memory works",
+#     recommendation_id: recommendation.id,
+#     user: User.all.sample,
+#     chatroom: chatroom
+#   )
 
-  # message.update(gpt_response: text)
+#   # message.update(gpt_response: text)
 
-puts ' ✔️ Successfully created ===> Messages'
+# puts ' ✔️ Successfully created ===> Messages'

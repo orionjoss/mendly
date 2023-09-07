@@ -17,7 +17,9 @@ class MessagesController < ApplicationController
     else
       render "chatrooms/show", status: :unprocessable_entity
     end
+
   end
+
 
   # Generate a response using ChatGPT
   # Define a response based on a chat GPT query
