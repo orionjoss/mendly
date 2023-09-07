@@ -13,6 +13,7 @@
   padding: 5px 10px 5px 10px !important;
   text-decoration: none;
   transition: 0.3s ease;
+  margin-right: 10px;
 }
 
 .btn-collapse {
@@ -44,9 +45,34 @@
 	outline: inherit;
 }
 
+.btn-search {
+
+  padding: 0px;
+}
+
 .btn-dropdown {
   background: none;
   font-size: 20px;
   border: none;
   color: #d7d7d7;
+}
+
+.btn-download {
+  border-radius: 30px !important;
+  background-color: #f72585 !important;
+  color: white;
+  font-family: 'Archivo', sans-serif !important;
+  font-weight: 500;
+  font-size: 1.4em;
+  // color:whitesmoke;
+  // border: none;
+  padding: 15px 25px 15px 25px !important;
+  text-decoration: none !important;
+  transition: 0.3s ease;
+}
+
+.btn-search-bar{
+  // position: relative;
+  // left:-50px;
+  margin-left: 5px;
 }

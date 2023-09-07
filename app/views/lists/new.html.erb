@@ -1,17 +1,35 @@
 <div class="container mt-5">
 
-  <div class="box-lists">
+  <div class="box-lists box-lists-no-gradient">
     <h1 class="box-lists-text">New Collection</h1>
 
     <%= simple_form_for(@list) do |form| %>
       <div class="form-inputs text-white">
-      <%= form.input :name, placeholder: "Name your list"%>
+      <%= form.input :name, label: false, placeholder: "Name your collection", input_html: { class: "form-input-border mt-3"}%>
       </div>
 
-      <div class="form-actions mt-4">
-        <%= form.button :submit, 'Create List', :class => "btn btn-sm btn-primary" %>
+      <div class="form-actions mt-4 d-flex justify-content-center">
+        <%= form.button :submit, 'Confirm', :class => "btn btn-sm btn-primary rounded-pill p-2 w-100 mt-1 mb-2" %>
       </div>
 
     <% end %>
+  </div>
+</div>
+
+<div class="navbar-bottom">
+  <div class="navbar-icons d-flex justify-content-between">
+
+    <%= link_to chatroom_path(Chatroom.last), class: "text-decoration-none" do %>
+      <div class="text-navbar-bottom"><i class="fa-solid fa-smile fa-xl mb-3" style="color: #aaaaaa;"></i><p>AI librarian</p></div>
+    <% end %>
+
+    <%= link_to new_recommendation_path, class: "text-decoration-none" do %>
+      <div class="text-navbar-bottom"><i class="fa-solid fa-plus fa-beat fa-xl mb-3" style="color: #aaaaaa;"></i><p>New mendly</p></div>
+    <% end %>
+
+    <%= link_to home_path, class: "text-decoration-none" do %>
+      <div class="text-navbar-bottom"><i class="fa-solid fa-layer-group fa-xl mb-3" style="color: #aaaaaa;"></i><p>Library</p></div>
+    <% end %>
+
   </div>
 </div>

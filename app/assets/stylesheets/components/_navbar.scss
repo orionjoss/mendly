@@ -17,6 +17,26 @@ color: aliceblue;
 text-decoration: none !important;
 }
 
+.navbar-icons{
+  padding: 0px 15px 0px 15px;
+  margin: 20px 30px 10px 30px;
+}
+
+.navbar-bottom{
+  border-radius: 25px 25px 0px 0px;
+  background-color: #555;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.navbar-bottom-chat{
+  border-radius: 25px 25px 0px 0px;
+  background-color: #555;
+  // position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
 .dropdown-menu-plus {
   background-color: #333 !important;
   border-radius: 8px 8px 8px 8px !important;

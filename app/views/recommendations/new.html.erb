@@ -1,13 +1,13 @@
 <div class="container mt-4">
 
-  <div class="box-lists">
+  <div class="box-lists box-lists-no-gradient">
     <h1 class="box-lists-text">New Mendly</h1>
 
     <%= simple_form_for(@recommendation) do |form| %>
       <div class="form-inputs text-white">
-        <%= form.association :item, label: "Name", placeholder: "Name your recommendation", input_html: { class: "form-input-border", data: {controller: "tom-select"}} %>
+        <%= form.association :item , label: "Name", placeholder: "Name your recommendation", input_html: { class: "form-input-border",data: {controller: "tom-select"}} %>
         <%= form.association :giver, label: "Mendler", label_method: :nickname, placeholder: "Who gave you this recommendation?", input_html: { class: "form-input-border", data: {controller: "tom-select"}} %>
-        <%= form.input :comment, placeholder: "Take a quick note about it", input_html: { class: "form-input-border" } %>
+        <%= form.input :comment, placeholder: "share your thoughts", input_html: { class: "form-input-border" } %>
 
       </div>
 
@@ -17,5 +17,23 @@
 
 
     <% end %>
+  </div>
+</div>
+
+<div class="navbar-bottom">
+  <div class="navbar-icons d-flex justify-content-between">
+
+    <%= link_to chatroom_path(Chatroom.last), class: "text-decoration-none" do %>
+      <div class="text-navbar-bottom"><i class="fa-solid fa-smile fa-xl mb-3" style="color: #aaaaaa;"></i><p>AI librarian</p></div>
+    <% end %>
+
+    <%= link_to new_recommendation_path, class: "text-decoration-none" do %>
+      <div class="text-navbar-bottom"><i class="fa-solid fa-plus fa-beat fa-xl mb-3" style="color: #aaaaaa;"></i><p>New mendly</p></div>
+    <% end %>
+
+    <%= link_to home_path, class: "text-decoration-none" do %>
+      <div class="text-navbar-bottom"><i class="fa-solid fa-layer-group fa-xl mb-3" style="color: #aaaaaa;"></i><p>Library</p></div>
+    <% end %>
+
   </div>
 </div>

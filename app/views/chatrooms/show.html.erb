@@ -1,20 +1,75 @@
-<div class="container chatroom">
-  <h1>Your<%= @chatroom.name %></h1>
+<div class="container chatroom px-0">
+<!--  <h1>Your<%= @chatroom.name %></h1>
+-->
 
- <div class="messages">
+ <div class="messages px-3">
     <% @chatroom.messages.each do |message| %>
-      <%= render 'messages/message', message: message %>
+
+   <div id="message-<%= message.id %>">
+
+      <small>
+      <div class="text-end mt-3">
+        <strong><%= message.user.nickname %></strong>
+        <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+      </div>
+      </small>
+      <div class="box-user">
+        <div class="chatbox-text px-4 py-3 "><%= message.content %>
+        </div>
+      </div>
+
+      <% if message.gpt_response.present? %>
+      <div class="gpt-response">
+      <div id="mandy" class="d-flex justify-content-start mt-2">
+        <div>
+          <%= image_tag "https://res.cloudinary.com/div6oduuz/image/upload/v1693913255/mandy-avatar_a2hpob.png", class: "avatar-ai", alt: "dropdown menu" %>
+        </div>
+        <div class="chatbox-text-mandy mt-4">Mandy Lee</div>
+
+      </div>
+
+          <%= link_to "/home?query=will", class: "text-decoration-none text-white" do %>
+
+            <div class="box-chatbot">
+              <div class="px-4 py-3"><%= message.gpt_response %>
+              </div>
+            </div>
+
+          <% end %>
+
+      </div>
     <% end %>
+
+  </div>
+  <% end %>
 </div>
 
-<div class="body-search-bar">
+<div class="navbar-bottom-chat">
+
   <% if @chatroom && @message %>
-    <%= simple_form_for [@chatroom, @message], html: { class: "d-flex" } do |f| %>
-      <%= f.input :content, label: false, placeholder: "Message ##{h(@chatroom.name)}", wrapper_html: { class: "flex-grow-1" } %>
-      <%= f.submit "Send", class: "btn btn-light mb-3 custom-button" %>
-    <% end %>
+      <%= simple_form_for [@chatroom, @message], html: { class: "m-0 p-0 border-top-0" } do |f| %>
+        <div class="d-flex justify-content-between align-items-center pt-4 pb-1 px-4">
+          <%= f.input :content, label: false, wrapper: false, placeholder: "Ask #{h(@chatroom.name)}", :input_html => { :class => 'chat-search-bar m-0 flex-grow-1 border-top-0' }%>
+          <%= f.submit "Send", class: "btn btn-pill btn-outline-light btn-search-bar" %>
+        </div>
+      <% end %>
   <% else %>
     <!-- Handle the case where @chatroom or @message is nil -->
   <% end %>
 
+  <div class="navbar-icons d-flex justify-content-between">
+
+    <%= link_to chatroom_path(Chatroom.last), class: "text-decoration-none" do %>
+      <div class="text-navbar-bottom"><i class="fa-solid fa-smile fa-xl mb-3" style="color: #aaaaaa;"></i><p>AI Librarian</p></div>
+    <% end %>
+
+    <%= link_to new_recommendation_path, class: "text-decoration-none" do %>
+      <div class="text-navbar-bottom"><i class="fa-solid fa-plus fa-beat fa-xl mb-3" style="color: #aaaaaa;"></i><p>New mendly</p></div>
+    <% end %>
+
+    <%= link_to home_path, class: "text-decoration-none" do %>
+      <div class="text-navbar-bottom"><i class="fa-solid fa-layer-group fa-xl mb-3" style="color: #aaaaaa;"></i><p>Library</p></div>
+    <% end %>
+
+  </div>
 </div>

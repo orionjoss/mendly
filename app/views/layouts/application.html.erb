@@ -13,26 +13,49 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@800;900&family=Sofia+Sans+Extra+Condensed:wght@800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital@0;1&family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Sofia+Sans+Extra+Condensed:wght@800&display=swap" rel="stylesheet">
 
   </head>
 
   <body style="min-height: 100vh; display: flex; flex-direction: column;">
     <div>
-      <%= render "shared/navbar" %>
+      <% unless request.path == splash_path %>
+        <%= render "shared/navbar" %>
+      <% end %>
     </div>
 
-    <div class="body-yield flex-grow-1 position-relative">
+
+    <div class="body-yield flex-grow-1">
       <%= yield %>
     </div>
 
-    <%# <div class="body-search-bar">
+    <!-- <div class="body-search-bar">
       <form class="d-flex">
         <input id="user-message" class="form-control search-bar-plus me-2" type="search" placeholder="Find a list or recommendation" aria-label="Search" content="User-message">
         <button class="btn btn-outline-primary btn-pill" type="submit">Go!</button>
       </form>
-    </div> %>
+    </div> -->
 
+<!-- navbar bottom / hide if needed-->
+<!--
+    <div class="navbar-bottom">
+      <div class="navbar-icons d-flex justify-content-between">
+
+        <%= link_to chatroom_path(Chatroom.last), class: "text-decoration-none" do %>
+          <div class="text-navbar-bottom"><i class="fa-solid fa-smile fa-xl mb-3" style="color: #aaaaaa;"></i><p>AI librarian</p></div>
+        <% end %>
+
+        <%= link_to new_recommendation_path, class: "text-decoration-none" do %>
+          <div class="text-navbar-bottom"><i class="fa-solid fa-plus fa-beat fa-xl mb-3" style="color: #aaaaaa;"></i><p>New mendly</p></div>
+        <% end %>
+
+        <%= link_to home_path, class: "text-decoration-none" do %>
+          <div class="text-navbar-bottom"><i class="fa-solid fa-layer-group fa-xl mb-3" style="color: #aaaaaa;"></i><p>Library</p></div>
+        <% end %>
+
+      </div>
+    </div>
+-->
     <%= render "shared/flashes" %>
   </body>
 </html>

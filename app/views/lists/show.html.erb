@@ -1,7 +1,7 @@
 <div class="container mt-4">
 
-  <div class="d-flex justify-content-between mb-2">
-  <%= link_to "< back", home_path, class: "btn btn-outline-secondary btn-pill btn-bar text-white btn-sm mx-1" %>
+  <div class="d-flex justify-content-between mb-4">
+  <%= link_to "←", home_path, class: "btn btn-outline-secondary btn-pill btn-bar text-gray btn-sm mx-1" %>
 
   <%= link_to "x delete",
               list_path(@list),
@@ -15,7 +15,7 @@
     </div>
 
     <div>
-    <button class="btn btn-outline-primary btn-sm btn-pill dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">+ add mendly</button>
+    <button class="btn btn-outline-secondary btn-sm btn-pill dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">add existing mendly</button>
         <ul class="dropdown-menu dropdown-menu-plus">
           <% @all_recommendations.each do |recommendation| %>
             <li class="mx-3">
@@ -24,7 +24,7 @@
           <% end %>
         </ul>
 
-        <%= link_to "+ new mendly", new_recommendation_path, class: "btn btn-outline-primary btn-sm btn-filters"%>
+        <%= link_to "create mendly", new_recommendation_path, class: "btn btn-outline-secondary btn-sm btn-filters"%>
     </div>
 
   </div>
@@ -69,5 +69,23 @@
               class: "btn btn-outline-secondary btn-sm" %></div>
 -->
       <% end %>
+  </div>
+</div>
+
+<div class="navbar-bottom">
+  <div class="navbar-icons d-flex justify-content-between">
+
+    <%= link_to chatroom_path(Chatroom.last), class: "text-decoration-none" do %>
+      <div class="text-navbar-bottom"><i class="fa-solid fa-smile fa-xl mb-3" style="color: #aaaaaa;"></i><p>AI librarian</p></div>
+    <% end %>
+
+    <%= link_to new_recommendation_path, class: "text-decoration-none" do %>
+      <div class="text-navbar-bottom"><i class="fa-solid fa-plus fa-beat fa-xl mb-3" style="color: #aaaaaa;"></i><p>New mendly</p></div>
+    <% end %>
+
+    <%= link_to home_path, class: "text-decoration-none" do %>
+      <div class="text-navbar-bottom"><i class="fa-solid fa-layer-group fa-xl mb-3" style="color: #aaaaaa;"></i><p>Library</p></div>
+    <% end %>
+
   </div>
 </div>

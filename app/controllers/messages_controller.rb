@@ -10,27 +10,26 @@ class MessagesController < ApplicationController
 
     gpt_response = openai_service.call
 
-    if gpt_response.present?
-      @message.gpt_response = gpt_response
-    end
+    @message.gpt_response = gpt_response if gpt_response.present?
 
     if @message.save
       redirect_to chatroom_path(@chatroom)
     else
       render "chatrooms/show", status: :unprocessable_entity
     end
+
   end
 
 
-#Generate a response using ChatGPT
-  #Define a response based on a chat GPT query
-  #call it
-  #generate response as a message
-  #check if response is not empty
-  #User will ask specific queries about their own data
-  #How chat GPT will access our own data?
+  # Generate a response using ChatGPT
+  # Define a response based on a chat GPT query
+  # call it
+  # generate response as a message
+  # check if response is not empty
+  # User will ask specific queries about their own data
+  # How chat GPT will access our own data?
 
-private
+  private
 
   def message_params
     params.require(:message).permit(:content)

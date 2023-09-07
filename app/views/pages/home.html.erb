@@ -2,25 +2,7 @@
 
 
 <!-- filter group-->
-  <div class="d-flex justify-content-between mx-3 mt-3 my-0">
 
-    <button type="button" class="btn btn-outline-light btn-filters btn-sm">lists </button>
-    <button type="button" class="btn btn-outline-light btn-filters btn-sm">mendlies</button>
-    <button class="btn btn-outline-light btn-sm btn-filters dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">#categories</button>
-    <ul class="dropdown-menu dropdown-menu-plus mt-1">
-      <% @categories.each do |category| %>
-        <li class="dropdown-menu-text mx-3">#<%= category.name %></li>
-      <% end %>
-    </ul>
-    <button class="btn btn-outline-light btn-sm btn-filters dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@friends</button>
-    <ul class="dropdown-menu dropdown-menu-plus mt-1">
-      <% @givers.each do |giver| %>
-        <li class="dropdown-menu-text mx-3">@<%= giver.nickname %></li>
-      <% end %>
-    </ul>
-  </div>
-
-  <hr>
 
 <!-- number of results-->
 <!--
@@ -38,11 +20,11 @@
     </button>
 
     <div>
-      <%= link_to "+ new list", new_list_path, class: "btn btn-primary btn-sm btn-filters" %>
+      <%= link_to "+ new list", new_list_path, class: "btn btn-outline-light btn-sm btn-filters" %>
     </div>
   </div>
 
-  <div class="collapse show" id="collapseList">
+  <div class="collapse" id="collapseList">
     <div class="card card-body block-collapse">
       <div class="d-flex align-content-start flex-wrap w-100">
         <% @lists.reverse_each do |list| %>
@@ -62,10 +44,29 @@
     </button>
 
     <div>
-      <%= link_to "+ new mendly", new_recommendation_path, class: "btn btn-primary btn-sm btn-filters"%>
+      <%= link_to "+ new mendly", new_recommendation_path, class: "btn btn-outline-light btn-sm btn-filters"%>
     </div>
   </div>
 
+  <div class="d-flex justify-content-start mx-3 mt-3 my-0">
+    <div class="row w-100 justify-content-center">
+     <div class="col-12 my-3">
+
+     <%# Search Bar %>
+    <%= form_with url: home_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control  btn-pill",
+            placeholder: "search mendlies",
+            style: "background-color: rgba(140, 140, 140, 0.5);
+            border:none; margin-right: 10px; color:white;"%>
+
+            <%= submit_tag "→", name: "", class: "btn btn-outline-light btn-pill"%>
+
+    <% end %>
+  </div>
+</div>
+  </div>
   <div class="collapse show" id="collapseRecommendations">
     <div class="card card-body block-collapse">
       <div class="d-flex align-content-start flex-wrap w-100">
@@ -112,5 +113,25 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- navbar botttom -->
+
+<div class="navbar-bottom">
+  <div class="navbar-icons d-flex justify-content-between">
+
+    <%= link_to chatroom_path(Chatroom.last), class: "text-decoration-none" do %>
+      <div class="text-navbar-bottom"><i class="fa-solid fa-smile fa-xl mb-3" style="color: #aaaaaa;"></i><p>AI librarian</p></div>
+    <% end %>
+
+    <%= link_to new_recommendation_path, class: "text-decoration-none" do %>
+      <div class="text-navbar-bottom"><i class="fa-solid fa-plus fa-beat fa-xl mb-3" style="color: #aaaaaa;"></i><p>New mendly</p></div>
+    <% end %>
+
+    <%= link_to home_path, class: "text-decoration-none" do %>
+      <div class="text-navbar-bottom"><i class="fa-solid fa-layer-group fa-xl mb-3" style="color: #aaaaaa;"></i><p>Library</p></div>
+    <% end %>
+
   </div>
 </div>
