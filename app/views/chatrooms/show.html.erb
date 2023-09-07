@@ -6,31 +6,32 @@
     <% @chatroom.messages.each do |message| %>
       <div id="message-<%= message.id %>">
 
-        <small>
-        <div class="text-end mt-3">
-          <strong><%= message.user.nickname %></strong>
-          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-        </div>
-        </small>
-        <div class="box-user">
-          <div class="chatbox-text px-4 py-3 "><%= message.content %>
-          </div>
-        </div>
-
         <% if message.gpt_response.present? %>
-        <div class="gpt-response">
-        <div id="mandy" class="d-flex justify-content-start mt-2">
-          <div>
-            <%= image_tag "https://res.cloudinary.com/div6oduuz/image/upload/v1693913255/mandy-avatar_a2hpob.png", class: "avatar-ai", alt: "dropdown menu" %>
-          </div>
-          <div class="chatbox-text-mandy mt-4">Mandy Lee</div>
+          <div class="gpt-response">
+          <div id="mandy" class="d-flex justify-content-start mt-2">
+            <div>
+              <%= image_tag "https://res.cloudinary.com/div6oduuz/image/upload/v1693913255/mandy-avatar_a2hpob.png", class: "avatar-ai", alt: "dropdown menu" %>
+            </div>
+            <div class="chatbox-text-mandy mt-4">Mandy Lee (AI librarian)</div>
 
-        </div>
-              <div class="box-chatbot">
-                <div class="px-4 py-3"><%= message.gpt_response %>
+          </div>
+                <div class="box-chatbot">
+                  <div class="px-4 py-3"><%= message.gpt_response %>
+                  </div>
                 </div>
-              </div>
-        </div>
+          </div>
+        <% else %>
+
+          <small>
+          <div class="text-end mt-3">
+            <strong><%= message.user.nickname %></strong>
+            <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+          </div>
+          </small>
+          <div class="box-user">
+            <div class="chatbox-text px-4 py-3 "><%= message.content %>
+            </div>
+          </div>
       <% end %>
 
     </div>
@@ -53,7 +54,7 @@
   <div class="navbar-icons d-flex justify-content-between">
 
     <%= link_to chatroom_path(Chatroom.last), class: "text-decoration-none" do %>
-      <div class="text-navbar-bottom"><i class="fa-solid fa-smile fa-xl mb-3" style="color: #aaaaaa;"></i><p>AI librarian</p></div>
+      <div class="text-navbar-bottom"><i class="fa-solid fa-smile fa-xl mb-3" style="color: #aaaaaa;"></i><p>AI Librarian</p></div>
     <% end %>
 
     <%= link_to new_recommendation_path, class: "text-decoration-none" do %>
