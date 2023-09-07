@@ -10,7 +10,12 @@ class MessagesController < ApplicationController
 
     gpt_response = openai_service.call
 
-    @message.gpt_response = gpt_response if gpt_response.present?
+    # @message.gpt_response = gpt_response if gpt_response.present?
+
+    test = openai_service.call_langchain(params["message"]["content"])
+
+    @message.gpt_response = test if gpt_response.present?
+
 
     if @message.save
       redirect_to chatroom_path(@chatroom)
