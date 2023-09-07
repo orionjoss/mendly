@@ -19,7 +19,9 @@
 
   <body style="min-height: 100vh; display: flex; flex-direction: column;">
     <div>
-      <%= render "shared/navbar" %>
+      <% if !current_path = splash_path %>
+        <%= render "shared/navbar" %>
+      <% end %>
     </div>
 
     <div class="body-yield flex-grow-1">
