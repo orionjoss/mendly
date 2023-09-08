@@ -33,6 +33,20 @@
     <h5> mendled by @<%= @recommendation.giver.nickname %></h5>
     <h6>'<%= @recommendation.comment %>'</h6>
 
+    <p class="d-inline-flex">
+      <button class="btn flex-grow-1 border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Available on  <i class="fa-solid fa-arrow-up-right-from-square" style="color: #fff;"></i>
+      </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body box-chat-intructions">
+        <div><h2 class="text-white">Netflix</h2><p class="box-link"> netflix.com/title/80117799</p></div>
+        <div><h2 class="text-white">RTP play</h2><p class="box-link"> rtp.pt/play/p12192/requiem</p></div>
+        <div><h2 class="text-white">Apple TV</h2><p class="box-link"> tv.apple.com/us/show/foundation</p></div>
+      </div>
+    </div>
+
+
     <hr>
     <div id="buttons unimportant">
     <%= link_to "Edit", edit_recommendation_path(@recommendation), class: "btn btn-outline-secondary btn-pill btn-bar btn-sm mx-1" %>

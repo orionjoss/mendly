@@ -131,6 +131,22 @@
   100% { background-color: #820ead; }
 }
 
+.box-link{
+  border-radius: 15px;
+  background-color: #000;
+  color: white;
+  padding: 5px 5px 5px 5px;
+  text-decoration: underline !important;
+}
+.box-link-text{
+  font-family: 'Archivo', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: x-large;
+  text-decoration: underline;
+}
+
+
 .box-card-advantages {
   border-radius: 20px !important;
   // border: 0px !important;
