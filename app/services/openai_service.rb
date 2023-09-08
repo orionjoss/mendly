@@ -8,7 +8,7 @@ class OpenaiService
   def initialize(prompt)
     @client = OpenAI::Client.new
     @prompt = prompt
-    @database = Langchain::Tool::Database.new(connection_string: "postgres://localhost:5432/mendly_development")
+    @database = Langchain::Tool::Database.new(connection_string: Rails.env.development? ? ENV["DB_LOCAL"] : ENV["DB_PROD"])
     @agent = Langchain::Agent::SQLQueryAgent.new(llm: Langchain::LLM::OpenAI.new(api_key: ENV["OPENAI_API_KEY"]), db: @database)
   end
 
