@@ -1,6 +1,21 @@
-<div class="container chatroom px-0">
+<div class="container chatroom px-0 mt-0">
 <!--  <h1>Your<%= @chatroom.name %></h1>
+<div class="box-chat-intructions">add #movie Arrival @friend /personal comment</div>
 -->
+
+<p class="d-inline-flex">
+  <button class="btn flex-grow-1 border-0 text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-circle-info fa-lg" style="color: #777;"></i>
+    How to use this chat
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body box-chat-intructions box-chat-intructions-text">
+    <p>👋 Meet Mandy Lee, your personal AI Librarian. Let’s get started:</p>
+    <p>1. To add a recommendation, type: “add #category Title @Recommender /your comment”.</p>
+    <p>2. To view your recommendations, type: “List category from @Recommender”.</p>
+  </div>
+</div>
+
 
  <div class="messages px-3">
     <% @chatroom.messages.reverse.each do |message| %>
@@ -28,7 +43,7 @@
 
       </div>
 
-          <%= link_to "/home?query=will", class: "text-decoration-none text-white" do %>
+          <%= link_to "/home?query=jorge+marques", class: "text-decoration-none text-white" do %>
 
             <div class="box-chatbot">
               <div class="px-4 py-3"><%= message.gpt_response %>
