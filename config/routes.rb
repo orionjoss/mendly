@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "home", to: "pages#home"
   get "splash", to: "pages#splash"
   get '/weaviate/create_schema', to: 'weaviate#create_schema'
-  
+
   resources :recommendations
   patch "recommendations/:id/archive", to: "recommendations#archive"
   resources :lists, only: %i[show new create destroy] do
