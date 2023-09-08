@@ -18,9 +18,11 @@
 
       <div class="fa-solid fa-share-nodes fa-lg btn-dropdown text-light" type="div" data-bs-toggle="dropdown" aria-expanded="false"></div>
         <ul class="dropdown-menu dropdown-icons-plus p-3 mt-3">
+          <%= link_to list_path(@list,check: "true"),class: "text-decoration-none" do %>
           <i class="fa-brands fa-instagram fa-2xl px-1" style="color: #bbb;"></i>
           <i class="fa-brands fa-square-facebook fa-2xl px-1" style="color: #bbb;"></i>
           <i class="fa-brands fa-square-whatsapp fa-2xl px-1" style="color: #bbb;"></i>
+          <% end %>
         </ul>
 
       <%= link_to list_path(@list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},

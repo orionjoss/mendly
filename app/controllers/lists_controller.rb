@@ -1,5 +1,6 @@
 class ListsController < ApplicationController
   def show
+    flash.now[:notice] = "List successfully shared!" if params[:check].present?
     @list = List.find(params[:id])
     @recommendations = @list.recommendations
     @all_recommendations = Recommendation.last(15)
