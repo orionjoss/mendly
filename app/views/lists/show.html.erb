@@ -62,7 +62,7 @@
       } %>
 
     <% @recommendations.reverse_each do |recommendation| %>
-      <%= link_to recommendation_path(recommendation), class: "" do %>
+      <%= link_to recommendation_path(recommendation), class: "text-decoration-none" do %>
         <div class="col box-cards flex-grow-1">
           <div class="d-flex justify-content-between align-items-center">
             <h5 class="card-item-title"><%= recommendation.item.title %></h5>
