@@ -2,6 +2,8 @@ class RecommendationsController < ApplicationController
   def show
     @recommendation = Recommendation.find(params[:id])
     @lists = current_user.lists
+    list_url = ["https://res.cloudinary.com/div6oduuz/image/upload/v1694185616/card-martian_m82ana.jpg", "https://res.cloudinary.com/div6oduuz/image/upload/v1694185616/card-woman_iueqv7.jpg", "https://res.cloudinary.com/div6oduuz/image/upload/v1694185615/card-arrival_eihp1i.jpg", "https://res.cloudinary.com/div6oduuz/image/upload/v1694185615/card-dune_th75pj.jpg"]
+    @image = list_url.sample
   end
 
   def new

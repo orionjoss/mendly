@@ -53,15 +53,18 @@
   }
   </style>
 </head>
-
-<body class="rails-default-error-page">
-  <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+<body>
+  <body class="rails-default-error-page">
+    <div class="dialog">
+      <div>
+        <h1>The page you were looking for doesn't exist.</h1>
+        <p>You may have mistyped the address or the page may have moved.</p>
+      </div>
+      <p>If you are the application owner check the logs for more information.</p>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
-  </div>
+    <!-- This file lives in public/404.html
+    <div class="background-gradient-dark navbar-mendly-brand text-center"><%= link_to "uh-oh. 404 error", home_path, class: "text-light" %></div>
+  -->
+
 </body>
 </html>
