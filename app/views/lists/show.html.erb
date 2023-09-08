@@ -32,46 +32,42 @@
     </div>
 
 
+<!--header list -->
 
   <div class="box-lists-one flex-grow-1 mt-3 me-2">
-    <div>
-<!--      <p><strong>COLLECTION</strong></p> -->
-      <h1 class="box-lists-one-text mb-5"><%= @list.name %></h1>
-  <div class="d-flex align-content-start flex-wrap w-100">
-    <div class="form-check form-switch">
-    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-    <label class="form-check-label" for="flexSwitchCheckDefault">public</label>
-  </div>
-    </div>
-
-
-  </div>
-
-
-  <% category_colors = {
-    "Film" => "#36c3bb",
-      "Documentary" => "#36c3bb",
-      "Animation" => "#36c3bb",
-      "Comic Book" => "#a3f263",
-      "Music" => "#36c3bb",
-      "Book" => "#a3f263",
-      "Graphic Novel" => "#a3f263",
-      "Videogame" => "#ff7b62",
-      "Podcast" => "#36c3bb",
-      "TV Show" => "#36c3bb",
-      "Youtube Channel" => "#36c3bb"
-    } %>
-
-  <% @recommendations.reverse_each do |recommendation| %>
-      <%= link_to recommendation_path(recommendation), class: "box-cards flex-grow-1" do %>
-        <div class="col">
-        <div class="d-flex justify-content-between align-items-center">
-          <h5 class="card-item-title"><%= recommendation.item.title %></h5>
-
-<!-- <%= link_to list_recommendation_list_path(@list) do %> -->
-<!-- <% end %>  -->
-
+<!--<p><strong>COLLECTION</strong></p> -->
+    <h1 class="box-lists-one-text mb-5"><%= @list.name %></h1>
+      <div class="d-flex align-content-start flex-wrap w-100">
+        <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault">public</label>
         </div>
+      </div>
+  </div>
+
+<!--card iteration -->
+  <div class="mt-1 mb-5">
+    <% category_colors = {
+      "Film" => "#36c3bb",
+        "Documentary" => "#36c3bb",
+        "Animation" => "#36c3bb",
+        "Comic Book" => "#a3f263",
+        "Music" => "#36c3bb",
+        "Book" => "#a3f263",
+        "Graphic Novel" => "#a3f263",
+        "Videogame" => "#ff7b62",
+        "Podcast" => "#36c3bb",
+        "TV Show" => "#36c3bb",
+        "Youtube Channel" => "#36c3bb"
+      } %>
+
+    <% @recommendations.reverse_each do |recommendation| %>
+      <%= link_to recommendation_path(recommendation), class: "" do %>
+        <div class="col box-cards flex-grow-1">
+          <div class="d-flex justify-content-between align-items-center">
+            <h5 class="card-item-title"><%= recommendation.item.title %></h5>
+          </div>
+
           <p class="badge rounded-pill" style="color: black; background-color: <%= category_colors[recommendation.item.category.name] %>;">
             #<%= recommendation.item.category.name %>
           </p>
@@ -81,28 +77,33 @@
         </div>
       <% end %>
 
-<!--  <div>  <%= link_to "x", list_recommendation_list_path(@list_recommendations),
-              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-              class: "btn btn-outline-secondary btn-sm" %></div>
--->
+    <% end %>
+    </div>
+  </div>
+</div>
+<!--NAVABAR BOTTOM -->
+  <div class="navbar-bottom">
+    <div class="navbar-icons d-flex justify-content-between">
+
+      <%= link_to chatroom_path(Chatroom.last), class: "text-decoration-none" do %>
+        <div class="text-navbar-bottom"><i class="fa-solid fa-smile fa-xl mb-3" style="color: #aaaaaa;"></i><p>AI librarian</p></div>
       <% end %>
-  </div>
+
+      <%= link_to new_recommendation_path, class: "text-decoration-none" do %>
+        <div class="text-navbar-bottom"><i class="fa-solid fa-plus fa-beat fa-xl mb-3" style="color: #aaaaaa;"></i><p>New mendly</p></div>
+      <% end %>
+
+      <%= link_to home_path, class: "text-decoration-none" do %>
+        <div class="text-navbar-bottom"><i class="fa-solid fa-layer-group fa-xl mb-3" style="color: #aaaaaa;"></i><p>Library</p></div>
+      <% end %>
+
+    </div>
 </div>
 
-<div class="navbar-bottom">
-  <div class="navbar-icons d-flex justify-content-between">
+  <!--  <div>  <%= link_to "x", list_recommendation_list_path(@list_recommendations),
+                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                class: "btn btn-outline-secondary btn-sm" %></div>
+  -->
 
-    <%= link_to chatroom_path(Chatroom.last), class: "text-decoration-none" do %>
-      <div class="text-navbar-bottom"><i class="fa-solid fa-smile fa-xl mb-3" style="color: #aaaaaa;"></i><p>AI librarian</p></div>
-    <% end %>
-
-    <%= link_to new_recommendation_path, class: "text-decoration-none" do %>
-      <div class="text-navbar-bottom"><i class="fa-solid fa-plus fa-beat fa-xl mb-3" style="color: #aaaaaa;"></i><p>New mendly</p></div>
-    <% end %>
-
-    <%= link_to home_path, class: "text-decoration-none" do %>
-      <div class="text-navbar-bottom"><i class="fa-solid fa-layer-group fa-xl mb-3" style="color: #aaaaaa;"></i><p>Library</p></div>
-    <% end %>
-
-  </div>
-</div>
+  <!-- <%= link_to list_recommendation_list_path(@list) do %> -->
+  <!-- <% end %>  -->
